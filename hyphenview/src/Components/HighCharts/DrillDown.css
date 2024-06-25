@@ -1,0 +1,120 @@
+.Drilldown_table_header {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .Drilldown-filter-sort-container{
+    display: flex;
+    justify-content: flex-end;
+    margin: 1%;
+  }
+  .Drilldown-filter-sort-container button{
+    margin-right: 5px;
+  }
+  
+  .sort-filter-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .sort-options {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .sort-option {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .Drilldown-sort-options-select {
+    width: 150px;
+  }
+  
+  .Drilldown-filter-toggle-btn {
+    border: 1px solid #999;
+    border-radius: 0;
+    cursor: pointer;
+  }
+  .Drilldown-filter-toggle-icon, .sort-by-btn-icon{
+    width: 30px;
+    height: 24px;
+  }
+  .Drilldown-add-sort-item-icon{
+    width: 30px;
+    height: 35px;
+    margin-left: 5px;
+  }
+  .Drilldown-sort-remove-icon{
+    width: 30px;
+    height: 32px;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  .Drilldown-remove-filter-item-btn{
+    border-radius: 50%;
+  }
+  #Drilldown-sort-by-btn{
+    border: 1px solid #999;
+    border-radius: 0;
+  }
+  .Drilldown-sort-options-super-parent{
+    display: flex;
+    justify-content: space-between;
+    margin: 1%;
+  }
+  .drill-apply-sort{
+    height: 34px;
+    transform: translateY(7px);
+  }
+  .Drilldown-sort-options-item-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .Drilldown-sort-options-item{
+    display: flex;
+    margin: 5px;
+  }
+  .dtsb-title{
+    color: transparent;
+  }
+  .dtsb-searchBuilder{
+    margin: 1%;
+  }
+.dt-search{
+    margin-top: 12px;
+    margin: 1%;
+}
+
+.dt-length{
+    margin: 1%;
+}
+.Drilldown-table-container-div{
+    width: 100%;
+}
+#myTable{
+    width: 100% !important;
+}
+
+.Generate_table_button_subContainer button{
+  margin-right: 5px;
+}
+
+.Generate_table_button{
+  display: flex;
+  justify-content: center;
+  margin: 1%;
+}
+
+.dt-scroll{
+  margin: 1%;
+}

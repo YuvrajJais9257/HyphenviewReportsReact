@@ -1,0 +1,125 @@
+.generate-report-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .export-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .filter-sort-container{
+    display: flex;
+    justify-content: flex-end;
+    margin: 1%;
+  }
+  .filter-sort-container button{
+    margin-right: 5px;
+  }
+  
+  .sort-filter-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .sort-options {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .sort-option {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .sort-options-select {
+    width: 150px;
+  }
+  
+  .filter-toggle-btn {
+    border: 1px solid #999;
+    border-radius: 0;
+    cursor: pointer;
+  }
+  .filter-toggle-icon, .sort-by-btn-icon{
+    width: 30px;
+    height: 24px;
+  }
+  .add-sort-item-icon{
+    width: 30px;
+    height: 35px;
+    margin-left: 5px;
+  }
+  .sort-remove-icon{
+    width: 30px;
+    height: 32px;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  .remove-filter-item-btn{
+    border-radius: 50%;
+  }
+  #sort-by-btn{
+    border: 1px solid #999;
+    border-radius: 0;
+  }
+  .sort-options-super-parent{
+    display: flex;
+    justify-content: space-between;
+    margin: 1%;
+  }
+  .apply-sort{
+    height: 34px;
+    transform: translateY(7px);
+  }
+  .sort-options-item-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .sort-options-item{
+    display: flex;
+    margin: 5px;
+  }
+  .dtsb-title{
+    color: transparent;
+  }
+  .dtsb-searchBuilder{
+    margin: 1%;
+  }
+.dt-search{
+    margin-top: 12px;
+    margin: 1%;
+}
+
+.dt-length{
+    margin: 1%;
+}
+.table-container-div{
+    width: 100%;
+}
+#myTable{
+    width: 100% !important;
+}
+
+.Generate_table_button_subContainer button{
+  margin-right: 5px;
+}
+
+.Generate_table_button{
+  display: flex;
+  justify-content: center;
+  margin: 1%;
+}
+
+.dt-scroll{
+  margin: 1%;
+}

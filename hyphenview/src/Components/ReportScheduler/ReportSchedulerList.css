@@ -1,0 +1,92 @@
+.Report_scheduler_btn{
+    width: 285px;
+    height: 33px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    text-align: center !important;
+    font-size: 15px;
+    padding: 0%;
+    margin-left: 3px; 
+}
+
+.Report_scheduler_page > span {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.Report_scheduler-search{
+    display: flex;
+    align-items: center;
+}
+.Report_scheduler_page{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    /* justify-content: space-around; */
+    margin: 10px;
+    align-items: center;
+
+}
+
+.Report_scheduler_search_cotainer{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between; 
+    align-items: center;
+    margin: 20px 20px 0px;
+}
+
+.Report_scheduler_export_csv span{
+    margin-left: 10px ;
+    
+ }
+
+ .Report_scheduler_export_csv{
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    box-sizing: border-box;
+    width: 30px;
+    height: 25px;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.Report_scheduler-search{
+    float: right;
+    /* margin-right: 10px; */
+    /* width: 300px; */
+}
+
+.Report_scheduler-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.Report_scheduler-search .form-control {
+    padding-left: 2.375rem;
+}
+/* .ScheduledReportsforDashboard{
+
+} */
+
+.Report_scheduler_table_content{
+    margin: 20px;
+    overflow: scroll;
+}
+
+.Report_scheduler_container{
+    display: flex;
+    flex-direction: column;
+}
+

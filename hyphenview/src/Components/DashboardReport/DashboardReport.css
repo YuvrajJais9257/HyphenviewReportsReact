@@ -1,0 +1,70 @@
+
+.DashboardReport_table_export_rearch{
+    display: flex;
+    justify-content: space-between;
+    margin: 2px;
+}
+
+/* .DashboardReport_table_main_container{
+     overflow-y: scroll;
+} */
+
+.DashboardReport_table_export_rearch .Report_export_csv{
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 36px;
+    height: 25px;
+    /* background-color: whitesmoke; */
+    /* border: 1px solid black; */
+    cursor: pointer;
+}
+
+.DashboardReport_table_export_rearc.Report_export_csv span{
+    margin-left: 10px ;
+    
+ }
+
+ .DashboardReport_table_export_rearc .has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+.DashboardReport_table_sub_container{
+    position: relative;
+    overflow: scroll;
+    max-height: 260px;
+    /* height: auto; */
+
+}
+
+
+/* .Report_table_main_container{
+    overflow-y: scroll;
+} */
+
+
+.DashboardReport_table_button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.DashboardReport_table_button button{
+    width: 120px;
+    margin-right: 5px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.pagination-bar {
+    display: flex;
+    justify-content: center;
+  }

@@ -1,0 +1,48 @@
+.sampledrilldownquery-sub-cnt {
+    text-align: center;
+    vertical-align: middle;
+    margin: 20px;
+    max-width: 125%;
+}
+
+.sampledrilldownquery-well{
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    width: 110%;
+}
+
+.sampledrilldownquery-testalinritemval{
+    text-align: right;
+    color: black;
+    font-style: normal;
+    
+}
+
+.sampledrilldownquery-inputGroupContainer{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+
+}
+
+.sampledrilldownquery-param-button{
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    left: 74px;
+    position: relative;
+}
+
+.custome-container-column{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 18px;
+}
+
+

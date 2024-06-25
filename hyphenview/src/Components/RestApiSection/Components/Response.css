@@ -1,0 +1,73 @@
+.btn-save{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+#proceed-to-next-page-button{
+  background-color: rgb(66, 67, 68);
+}
+#proceed-to-next-page-button:hover{
+  background-color: rgb(46, 47, 48);
+}
+
+
+.pagination{
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination .inactive, .pagination .active, #previous-button, #next-button{
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  background-color: rgb(66, 67, 68);
+  outline: 0px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  text-decoration: none;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+  border-radius: 4px;
+  text-align: center;
+  box-sizing: border-box;
+  min-width: 32px;
+  height: 32px;
+  padding: 0px 6px;
+  margin: 0px 3px;
+  color: rgb(255, 255, 255);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border: 1px solid rgba(255, 255, 255, 0.23);
+}
+
+#textarea-output-display{
+  background-color: rgb(66, 67, 68, 0.1);
+  border: 1px solid rgb(66, 67, 68);
+}
+
+
+.pagination .active {
+background-color:#007bff;
+  color: white;              
+  border-radius: 5px;        
+}
+
+.pagination button:hover {
+background-color: #007bff;
+}
+
+.pagination-ellipsis {
+  padding: 0px 10px;          
+  cursor: default;
+}

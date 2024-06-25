@@ -1,0 +1,414 @@
+import openpyxl
+from openpyxl.styles import Font
+from fastapi import FastAPI, File, UploadFile, Form, Query, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from datetime import datetime
+import psycopg2
+from reportlab.lib.pagesizes import A1
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
+from reportlab.lib import colors
+import fitz
+from PyPDF2 import PdfReader
+from io import BytesIO
+from PIL import Image
+import mysql.connector
+ 
+app = FastAPI()
+ 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+ 
+def save_uploaded_file(file_content,filename):
+    filepath = filename
+    with open(filepath, "wb") as f:
+        f.write(file_content)
+    return(filepath)
+ 
+def split_text(text, max_length):
+    return [text[i:i + max_length] for i in range(0, len(text), max_length)]
+ 
+def detect_long_text_columns(rows, max_length=10):
+    long_text_columns = []
+    for key in rows[0].keys():
+        for row in rows:
+            if isinstance(row[key], str) and len(row[key]) > max_length:
+                long_text_columns.append(key)
+                break
+    return long_text_columns
+ 
+def detect_long_text_columns_postgres(rows, columns, max_length=10):
+    """
+    Detect long text columns in PostgreSQL result with explicit column information.
+    """
+    long_text_columns = []
+    keys = [col.name for col in columns]
+    for i, key in enumerate(keys):
+        for row in rows:
+            if isinstance(row[i], str) and len(row[i]) > max_length:
+                long_text_columns.append(key)
+                break
+ 
+    return long_text_columns
+ 
+def extract_text_and_images(pdf_path):
+    images = []
+    results = []
+ 
+    pdf = fitz.open(pdf_path)
+ 
+    first_page = pdf[0]
+    dict_info = first_page.get_text("dict")
+    blocks = dict_info["blocks"]
+ 
+    for block in blocks:
+        if "lines" in block.keys():
+            spans = block['lines']
+            for span in spans:
+                data = span['spans']
+                for lines in data:
+                    if lines['size'] >= 10:
+                        results.append((lines['text'], lines['size'], lines['font']))
+ 
+    pdf_reader = PdfReader(pdf_path)
+ 
+    for page_num in range(1):
+        page = pdf_reader.pages[page_num]
+        xObject = page['/Resources']['/XObject'].get_object()
+ 
+        for obj in xObject:
+            if xObject[obj]['/Subtype'] == '/Image':
+                img = xObject[obj]
+                img_data = img._data
+ 
+                pil_img = Image.open(BytesIO(img_data))
+                images.append(pil_img)
+ 
+    pdf.close()
+    return results, images
+ 
+def first_page_content(canvas, doc, report_title, time):
+    # page_width, page_height = A1
+ 
+    # title_width = canvas.stringWidth(report_title, "Helvetica-Bold", 10)/2
+    # print(title_width)
+    # x_text = (page_width + title_width) / 2
+    formatted_datetime = time.strftime("%Y-%m-%d %H:%M:%S")
+    x_text = 100
+    y_text = A1[0] - 40
+    canvas.setFont("Helvetica-Bold", 15)
+    canvas.drawString(x_text, y_text, report_title)
+   
+    x_text = A1[1] - 200
+    canvas.setFont("Helvetica-Bold", 15)
+    canvas.drawString(x_text, y_text, formatted_datetime)
+ 
+def calculate_column_widths_mysql(page_width, num_columns, rows, min_absolute_width=80):
+    """
+    Calculate column widths dynamically based on page width, number of columns, and content.
+    """
+    flag = 0
+    max_column_widths = [len(col) for col in rows[0].keys()]
+    for row in rows:
+        for i, key in enumerate(row.keys()):
+            max_width = len(str(row[key]))
+            max_column_widths[i] = max(max_width, max_column_widths[i])
+ 
+    total_width = sum(max_column_widths)
+ 
+    while total_width < page_width:
+        scaling_factor = (page_width) / total_width
+        max_column_widths = [max(min_absolute_width, (width * scaling_factor)) for width in max_column_widths]
+        total_width = sum(max_column_widths)
+        flag = 1
+ 
+    if flag == 1:
+        column_widths = [max(min_absolute_width, width) for width in max_column_widths]
+    else:
+        if total_width > page_width:
+            scaling_factor = 0.6 * (page_width / total_width)
+            column_widths = [max(min_absolute_width, width * scaling_factor) for width in max_column_widths]
+    # Ensure that each column has a minimum width of min_absolute_width
+ 
+    # Adjust font size based on the number of columns
+    # max_font_size = 12
+    # min_font_size = 8
+    # font_size = max(min_font_size, min(max_font_size, 0.5 * (page_width / (num_columns * max_font_size))))
+ 
+    return column_widths
+ 
+def calculate_column_widths_postgres(page_width, num_columns, rows, min_absolute_width=80):
+    """
+    Calculate column widths dynamically based on page width, number of columns, and content for PostgreSQL cursor result.
+    """
+    flag = 0
+    max_column_widths = [len(str(value)) for value in rows[0]]
+    for row in rows:
+        for i, value in enumerate(row):
+            max_width = len(str(value))
+            max_column_widths[i] = max(max_width, max_column_widths[i])
+    total_width = sum(max_column_widths)
+    count = 0
+    while total_width < page_width:
+        count +=1
+        scaling_factor = (page_width) / total_width
+        max_column_widths = [max(min_absolute_width, (width * scaling_factor)) for width in max_column_widths]
+        total_width = sum(max_column_widths)
+        flag = 1
+ 
+    if flag == 1:
+        column_widths = [max(min_absolute_width, width) for width in max_column_widths]
+    else:
+        if total_width > page_width:
+            scaling_factor = 0.6 * (page_width / total_width)
+            column_widths = [max(min_absolute_width, int(width * scaling_factor)) for width in max_column_widths]
+ 
+    return column_widths
+ 
+def fetch_mysql_data(host, port, database, user, password, query, template_file_path, report_title):
+ 
+    try:
+        connection = mysql.connector.connect(
+            host=host,
+            port=port,
+            database=database,
+            user=user,
+            password=password
+        )
+        time = datetime.now()
+        formatted_datetime = time.strftime("%Y-%m-%d %H:%M:%S")
+        cursor = connection.cursor(dictionary=True)
+        cursor.execute(query)
+        columns = [column[0] for column in cursor.description]
+        workbook = openpyxl.Workbook()
+        worksheet = workbook.active
+        worksheet.append([report_title])
+        worksheet.append([formatted_datetime])
+        worksheet.append([None])
+        worksheet.append(columns)
+        for row in cursor.fetchall():
+            worksheet.append(list(row.values()))
+ 
+        connection.close()
+        for row in worksheet.iter_rows(min_row=1, max_row=4):
+            for cell in row:
+                cell.font = Font(bold=True)
+        current_datetime_str = time.strftime("%Y-%m-%d_%H-%M-%S")
+        valid_filename = f"{template_file_path}_{current_datetime_str}.xlsx"
+        workbook.save(valid_filename)
+        return valid_filename
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
+ 
+def fetch_postgres_data(host, port, database, user, password, query, template_file_path, report_title):
+    try:
+        connection = psycopg2.connect(
+            host=host,
+            port=port,
+            database=database,
+            user=user,
+            password=password
+        )
+        time = datetime.now()
+        formatted_datetime = time.strftime("%Y-%m-%d %H:%M:%S")
+        cursor = connection.cursor()
+        workbook = openpyxl.Workbook()
+        worksheet = workbook.active
+        cursor.execute(query)
+ 
+        columns = [desc[0] for desc in cursor.description]
+        worksheet.append([report_title])
+        worksheet.append([formatted_datetime])
+        worksheet.append([None])
+        worksheet.append(columns)
+ 
+        for row in cursor.fetchall():
+            worksheet.append(row)
+        connection.close()
+        for row in worksheet.iter_rows(min_row=1, max_row=4):
+            for cell in row:
+                cell.font = Font(bold=True)
+        current_datetime_str = time.strftime("%Y-%m-%d_%H-%M-%S")
+        valid_filename = f"{template_file_path}_{current_datetime_str}.xlsx"
+        workbook.save(valid_filename)
+        return valid_filename
+ 
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
+ 
+@app.post("/generate_report_pdf")
+async def generate_report(db_type: str = Form(...), query: str = Form(...), host: str = Form(...), username: str = Form(...), password: str = Form(...), database: str = Form(...), port: str = Form(None), report_name : str = Form(...), report_title: str = Form(...)):
+    try:
+        if port:
+            port = port
+        else:
+            if db_type == 'mysql':
+                port = 3306
+            elif db_type == 'postgres':
+                port = 5432
+ 
+        time = datetime.now()
+        new_formatted_time = time.strftime("%Y-%m-%d_%H-%M-%S")
+ 
+        db_config = {
+            'host': host,
+            'user': username,
+            'password': password,
+            'database': database,
+            'port' : port
+        }
+ 
+        if db_type == 'mysql':
+            conn = mysql.connector.connect(**db_config)
+ 
+            cursor = conn.cursor(dictionary=True)
+            cursor.execute(query)
+ 
+            batch_size = 1000
+            page_width, page_height = A1
+            long_text_columns = None
+            col_widths = None
+            all_tables = []
+ 
+            for batch_count, result_batch in enumerate(iter(lambda: cursor.fetchmany(batch_size), [])):
+                if not result_batch:
+                    break
+ 
+                if long_text_columns is None:
+                    long_text_columns = detect_long_text_columns(result_batch)
+                    col_widths = calculate_column_widths_mysql(page_width, len(result_batch[0]), result_batch)
+ 
+                table_data = []
+                keys = list(result_batch[0].keys())
+                table_data.append(tuple(keys))
+ 
+                font_size = 8
+                for col in long_text_columns:
+                    col_index = keys.index(col)
+                    max_content_length = 3000 # Adjust the max_content_length for cell
+                    line_length = int(0.19 * col_widths[col_index])
+                    for row in result_batch:
+                        row[col] = '\n'.join(split_text(str(row[col])[:max_content_length], line_length))  # Adjust the max_length as needed
+ 
+                for row in result_batch:
+                    new_row = list(row.values())
+                    table_data.append(tuple(new_row))
+ 
+                table = Table(table_data, colWidths=col_widths)
+                style = TableStyle([
+                    ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                    ('FONTSIZE', (0, 0), (-1, -1), font_size),
+                    ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+                    ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+                    ('ALIGN', (0, 0), (-1, 0), 'CENTER'),
+                    ('ALIGN', (0, 1), (-1, -1), 'LEFT'),
+                    ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+                    ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                    ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+                    ('GRID', (0, 0), (-1, -1), 1, colors.black),
+                ])
+ 
+                table.setStyle(style)
+ 
+                all_tables.append(table)
+ 
+        elif db_type == 'postgres':
+            conn = psycopg2.connect(**db_config)
+ 
+            cursor = conn.cursor()
+            cursor.execute(query)
+ 
+            batch_size = 1000
+            page_width, page_height = A1
+            long_text_columns = None
+            col_widths = None
+            all_tables = []
+            for batch_count, result_batch in enumerate(iter(lambda: cursor.fetchmany(batch_size), [])):
+                if not result_batch:
+                    break
+                long_text_columns = detect_long_text_columns_postgres(result_batch, cursor.description)
+                col_widths = calculate_column_widths_postgres(page_width, len(result_batch[0]), result_batch)
+                table_data = []
+                font_size = 8
+ 
+                keys = [desc[0] for desc in cursor.description]
+                table_data.append(keys)
+ 
+                for col in long_text_columns:
+                    col_index = keys.index(col)
+                    max_content_length = 3000
+                    line_length = int(0.19 * col_widths[col_index])
+                    result_batch = [list(row) for row in result_batch]
+ 
+                    for row in result_batch:
+                        row[col_index] = '\n'.join(split_text(str(row[col_index])[:max_content_length], line_length))
+ 
+                for row in result_batch:
+                    table_data.append(row)
+ 
+                table = Table(table_data, colWidths=col_widths)
+                style = TableStyle([
+                    ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                    ('FONTSIZE', (0, 0), (-1, -1), font_size),
+                    ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+                    ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+                    ('ALIGN', (0, 0), (-1, 0), 'CENTER'),
+                    ('ALIGN', (0, 1), (-1, -1), 'LEFT'),
+                    ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+                    ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                    ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+                    ('GRID', (0, 0), (-1, -1), 1, colors.black),
+                ])
+ 
+                table.setStyle(style)
+ 
+                all_tables.append(table)
+ 
+        valid_filename = f"{report_name}_{new_formatted_time}.pdf"
+        def on_first_page_function(canvas, doc):
+            first_page_content(canvas, doc, report_title, time)
+ 
+        output_doc = SimpleDocTemplate(valid_filename, pagesize=(A1[1], A1[0]))
+        output_doc.build(all_tables, onFirstPage=on_first_page_function)
+        cursor.close()
+        conn.close()
+ 
+        return {"message": f"Report generated successfully.","file":"{}".format(valid_filename)}
+    except Exception as e:
+        return HTTPException(status_code=500, detail=f"Error: {str(e)}")
+ 
+@app.post("/generate_report_excel")
+async def extract(db_type:str = Form(...), report_name: str = Form(...), query: str = Form(...), host: str = Form(...), username: str = Form(...), password: str = Form(...), database: str = Form(...), port: str = Form(None), report_title: str = Form(...)):
+    try:
+        host = host
+        schema = database
+        username = username
+        password = password
+        if port:
+            port = port
+        else:
+            if db_type == 'mysql':
+                port = 3306
+            elif db_type == 'postgres':
+                port = 5432
+ 
+        if db_type == 'mysql':
+            file = fetch_mysql_data(host, port, schema, username, password, query, report_name, report_title)
+            return {"message": f"Report generated successfully.","file":"{}".format(file)}
+ 
+        elif db_type == 'postgres':
+            file = fetch_postgres_data(host, port, schema, username, password, query, report_name, report_title)
+            return {"message": f"Report generated successfully.","file":"{}".format(file)}
+       
+    except Exception as e:
+        return HTTPException(status_code=500, detail=f"Error: {str(e)}")
+ 
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

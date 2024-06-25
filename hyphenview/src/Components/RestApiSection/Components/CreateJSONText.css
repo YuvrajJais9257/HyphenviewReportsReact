@@ -1,0 +1,35 @@
+.Created_Json_textarea {
+    overflow-y: scroll;
+    resize: none;
+    background-color: #ECF8FD;
+    border: solid 1px #06A2E4; /* Set border to transparent initially */
+    color: #333;
+    width: 100%;
+    min-height: 200px;
+    padding-left: 30px;
+    background-image: url('http://i.imgur.com/2cOaJ.png');
+    background-repeat: no-repeat;
+    background-attachment: local; 
+  }
+  
+  .Created_Json_textarea::placeholder {
+    color: transparent; /* Hide placeholder initially */
+  }
+  
+  .Created_Json_textarea:focus {
+    outline: none;
+    border-color: #06A2E4; /* Change border color on focus */
+  }
+  
+  .Created_Json_textarea:focus::placeholder {
+    color: #333; /* Show placeholder color on focus */
+  }
+
+  .param-item{
+    margin-top: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  

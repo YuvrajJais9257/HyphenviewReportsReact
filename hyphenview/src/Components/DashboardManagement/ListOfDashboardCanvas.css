@@ -1,0 +1,56 @@
+.List_Dashboard_table_export_rearch{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    align-items: center;
+}
+
+.Dashboard_Management_List{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    /* justify-content: space-around; */
+    margin: 10px;
+    align-items: center;
+}
+
+.Dashboard_Management_List  > span {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.Dashboard_List_export_csv {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    box-sizing: border-box;
+    width: 30px;
+    height: 25px;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    cursor: pointer;
+
+}
+
+.Dashboard_List_export_csv span {
+    margin-left: 10px;
+}
+
+.Dashboard_List_report_search {
+    display: flex;
+    align-items: center;
+}
+
+
+.Dashboard_List_has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}

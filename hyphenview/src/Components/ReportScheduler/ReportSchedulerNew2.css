@@ -1,0 +1,111 @@
+html, body{
+  scroll-behavior: smooth;
+  background-color: #f4f4f4;
+}
+
+/* .container-fluid {
+  display: flex;
+  background-color: #f4f4f4;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 3%;
+} */
+
+.iconContainer {
+  background-color: #ccc; 
+  border-radius: 5px; 
+  display: inline-block; 
+  align-items: center; 
+  padding: 5px;
+  width:fit-content;
+  z-index: 1;
+}
+
+/* label{
+  font-weight: bold;
+  flex-grow: 1;
+  white-space: nowrap;
+  margin-right: 50px;
+} */
+
+.select-report-dropdown, .set-interval select, .single-select  {
+  padding: 5px;
+}
+
+.datepicker {
+  width: 100%;
+}
+
+ .schedule_textarea .dropdown-toggle {
+  width: 300px;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+ .schedule_textarea{
+  padding-bottom: 50px;
+ }
+
+ .schedule_email-form{
+  
+  position: relative;
+  /* bottom: 20px; */
+  margin: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* z-index: 9999; */
+}
+
+.schedule_email-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule_email-form label {
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.schedule_email-form input,
+.schedule_email-form select,
+.schedule_email-form .schedule_textarea {
+  padding: 7px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.schedule_email-form input[type="submit"] {
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
+.schedule_email-form .set-interval select,
+.schedule_email-form .start-date .schedule-time .react-datepicker-wrapper {
+  width: 100%;
+}
+
+.schedule_email-form .start-date .schedule-time .react-datepicker-wrapper input {
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  width: calc(100% - 36px);
+}
+
+.schedule_email-form .start-date .react-datepicker-wrapper .datepicker {
+  width: 100%;
+}

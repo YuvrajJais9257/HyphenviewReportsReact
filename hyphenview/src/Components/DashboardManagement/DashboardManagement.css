@@ -1,0 +1,67 @@
+
+.DashboardManagement_report_displayed {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px 20px 0px 20px;
+    float: right;
+    background-color: #424344;
+}
+
+.DashboardManagement_report_displayed span{
+    margin-right: 10px;
+    width: 70px;
+    height: 30px;
+    border: 1px solid #424344;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+.DashboardManagement_report_table_container{
+    margin: 0px 20px 20px 20px;
+}
+
+.DashboardManagement_Report_search{
+    display: flex;
+    align-items: center;
+}
+
+.DashboardManagement_Report_search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.DashboardManagement_report_to_group {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    margin: 10px;
+} 
+
+.DashboardManagement_report_sub_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.DashboardManagement_report_button_cnt > button{
+    margin-left:20px;
+    /* width: 180px; */
+
+}
+
+
+.DashboardManagement_report_to_group > span{
+    margin-right: 5px;
+    cursor: pointer;
+}

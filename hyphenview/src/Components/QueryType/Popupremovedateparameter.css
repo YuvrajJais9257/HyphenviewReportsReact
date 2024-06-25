@@ -1,0 +1,53 @@
+.recommended-adjustments {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(105, 179, 221, 0.5);
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 3; 
+}
+
+/* .recommended-adjustments .popup__box  svg {
+    float: right;
+    margin: .5rem 1rem;
+    
+    fill: rgb(248, 115, 115);
+    cursor: pointer;
+} */
+.recommended-adjustments .popup__box {
+    position: relative;
+    
+    background: white;
+    border-radius: 10px;
+    
+    padding: 1rem;
+    width: 60%;
+    
+}
+.save_changes_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+}
+
+.Add_remove_data{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.recommended-adjustments .popup__box svg {
+    float: right;
+    margin: 0.5rem 1rem;
+    width: 12px;
+    fill: rgb(248, 115, 115);
+    cursor: pointer;
+}

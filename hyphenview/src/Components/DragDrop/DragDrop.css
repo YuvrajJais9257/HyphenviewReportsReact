@@ -1,0 +1,23 @@
+.side_bar {
+    width: 15vw;
+    padding: 10px;
+    border-right: 2px solid #ddd;
+    border-left: 2px solid #ddd;
+    border-top: 2px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .chart_type {
+    height: 55px;
+    border: 1px solid black;
+    text-align: center;
+    padding: 11px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }

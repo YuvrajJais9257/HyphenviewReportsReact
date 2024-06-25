@@ -1,0 +1,87 @@
+/* Styles for wrapping the search box */
+
+
+/* Bootstrap 5 text input with search icon */
+.Generate_table_export_rearch{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+
+.export_csv{
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    box-sizing: border-box;
+    width: 30px;
+    height: 25px;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.export_csv span{
+   margin-left: 10px ;
+   
+}
+/* .report_search{
+
+} */
+.Generate_has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.Generate_has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.Generate_table_button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* margin-right: 5px; */
+}
+
+.Generate_report_search{
+    display: flex;
+    align-items: center;
+}
+
+.Generate_table_button button{
+  
+    margin-right: 5px;
+}
+
+/* .Generate_table_button button{
+    width: 120px;
+    margin-right: 5px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+} */
+
+/* .Generate_table_button .download{
+    width: 180px;
+    margin-right: 5px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+} */
+
+.Generate_table_sub_container{
+    position: relative;
+    margin: 20px;
+    overflow: scroll;
+    /* height: 400px; */
+    height: fit-content;
+}

@@ -1,0 +1,42 @@
+#welcome-message h1{
+    font-size: x-large;
+}
+#company-title{
+    font-size: xx-large;
+}
+#user-profile-page{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#welcome-message{
+    margin-top: 15px;
+}
+#user-details-actual-info-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 8px 20%;
+    align-items: center;
+}
+#user-details-image{
+    height: 325px;
+    width: 325px;
+    /* margin-left: 25%; */
+}
+#groupName{
+    font-size: 22px;
+    font-weight: 700;
+}
+#userName{
+    font-size: 18px;
+}
+#user-details-information{
+    transform: translateY(-33px);
+}
+#logout-button-container{
+    margin-top: 15px;
+}
+
+

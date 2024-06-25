@@ -1,0 +1,128 @@
+/* .pagination-container {
+  display: flex;
+  list-style-type: none;
+  width: fit-content;
+  justify-content: center;
+  margin: 2rem auto;
+  border: #092433 0.1rem solid;
+  border-radius: 0.2rem;
+  
+      .pagination-item {
+      padding: 0 12px;
+      height: 32px;
+      text-align: center;
+      margin: auto 4px;
+      color: #092433;
+      display: flex;
+      box-sizing: border-box;
+      align-items: center;
+      letter-spacing: 0.01071em;
+      
+      line-height: 1.43;
+      font-size: 13px;
+      min-width: 32px;
+  
+      &.dots:hover {
+        background-color: transparent;
+        cursor: default;
+      }
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+        cursor:pointer;
+      }
+  
+      &.selected {
+        background-color:#092433;
+        color:white;
+      }
+  
+      .arrow {
+        &::before {
+          position: relative;
+          display: inline-block;
+          width: 0.4em;
+          height: 0.4em;
+          
+        }
+  
+        &.previous {
+          width:1rem;
+          margin-left: -2.5rem;
+          margin-right: -10rem;
+          
+        }
+  
+        &.next {
+          width:1rem;
+        }
+      }
+  
+      &.disabled {
+        pointer-events: none;
+  
+        
+  
+        &:hover {
+          background-color: transparent;
+          cursor: default;
+        }
+      }
+    }
+}
+
+
+   */
+
+   .pagination-container {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+   }
+  
+  .pagination-item {
+    cursor: pointer;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 4px;
+    border: 1px solid black;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  
+    &.selected {
+      background-color: #007bff;
+      color: #fff;
+    }
+  
+    &.disabled {
+      cursor: not-allowed;
+      color: #ccc;
+    }
+  
+    .arrow {
+      display: flex;
+      align-items: center;
+      font-size: 5px;
+      justify-content: center;
+    }
+  
+    .previous {
+      /* transform: rotate(180deg); */
+     text-align: center;
+    }
+  }
+  
+  .dots {
+    margin: 0 5px;
+    font-size: 18px;
+    user-select: none;
+  }
+
+  .arrow_p{
+    margin-bottom: 0rem !important;
+  }
+  

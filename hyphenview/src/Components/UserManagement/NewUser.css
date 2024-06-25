@@ -1,0 +1,132 @@
+.New_user_managemet_btn1 {
+    width: 130px;
+    height: 33px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    text-align: center !important;
+    font-size: 15px;
+    margin-left: 3px;
+}
+
+.new_user_message{
+    text-align: center;
+    color: red;
+}
+
+/* .New_user_managemet_btn2 {
+    width: 180px;
+    height: 33px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    text-align: center !important;
+    font-size: 15px;
+    margin-left: 3px;
+} */
+
+/* .New_user_page {
+    margin: 20px;
+    max-width: 630px;
+} */
+
+.New_user_management_page {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+} 
+
+.New_user_management_page > span{
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.New_user_managemet_btn2 {
+    color: white;
+    /* padding: 7px 5px; */
+    width: fit-content;
+    border: none;
+    background: rgb(66, 67, 68);
+    border-radius: 5px;
+    /* font-size: 16px; */
+    margin-left: 5px;
+    border: 1px solid transparent;
+    transition: 0.4s background ease-in;
+    cursor: pointer;
+    /* font-weight: ; */
+}
+
+.New_user_managemet_btn2:hover {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    transition: 0.3s background ease-in;
+  }
+
+/* .New_user_page_container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #f4f4f4;
+} */
+
+/* .New_user_page {
+    max-width: 500px;
+    width: 450px;
+    height: 540px;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}  */
+/* .form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+} */
+
+/* .form-control {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.form-select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+} */
+
+/* .new_user_button{
+    background-color: #007BFF;
+    border: 1px solid black;
+    width: 100px;
+}
+
+.new_user_button:hover {
+    background-color: #0056b3;
+}  */
+
+/* .btn-default {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-default:hover {
+    background-color: #0056b3;
+} */
+/* 
+.dropdown {
+    position: relative;
+    left: 50px;
+    top: 50px;
+  } */

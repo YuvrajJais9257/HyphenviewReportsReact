@@ -1,0 +1,144 @@
+.generator_container {
+  display: flex;
+  width: auto;
+  height: auto;
+}
+
+.side_bar {
+  width: 200px;
+  padding: 10px;
+  border-right: 2px solid #ddd;
+  border-left: 2px solid #ddd;
+  border-top: 2px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f4;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.generator_has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+.chart_type {
+  height: auto;
+  border: 1px solid black;
+  text-align: center;
+  padding: 11px;
+  font-size: "12px";
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggling_part {
+  width: 100%; /* Set width in percentage */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin: 10px;
+  border: 1px solid black;
+}
+
+.right_part_of_container {
+  width: 200px;
+  display: flex;
+  border: 1px solid whitesmoke;
+  padding: 10px;
+  margin-right: 5px;
+  flex-direction: column;
+}
+
+.right_part_of_container button{
+  width: 150px;
+  padding: 10px;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.space_between {
+  margin-top: 2px;
+}
+
+/* Media Query for screens 768px and below */
+@media only screen and (max-width: 768px) {
+  .generator_container {
+    flex-direction: column;
+  }
+
+  .side_bar,
+  .toggling_part,
+  .right_part_of_container {
+    width: 100%;
+  }
+
+  .toggling_part {
+    grid-template-columns: 1fr;
+  }
+}
+
+#dashboard-details-input-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+#group-select-dropdown-container {
+  height: 33px;
+}
+#user-group-select-dropdown{
+  max-height: 33px;
+}
+ 
+#dashboard-name-input-container{
+  height: 33px;
+}
+ 
+#dashboard-description-textarea-container{
+  height: 33px;
+}
+#dashboard-description{
+  height: 33px;
+}
+ 
+#verification-button-container{
+  margin: 2%;
+}
+#dashboard-verify-button{
+  min-width: 150px;
+  transform: translateX(7px);
+}
+.dashboard-detail-entry{
+  margin-left: 6px;
+  margin-right: 6px;
+}
+ 
+#group-select-dropdown-container{
+  max-width: 196px;
+  min-width: 188px;
+}
+
+
+.disabled-cnvas-btn {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: grey;
+}
+ 
+.enabled-cnvas-btn {
+  opacity: 1;
+  cursor: pointer;
+  background-color: rgba(66, 67, 68, 0.1);
+}
+ 
+ 

@@ -1,0 +1,105 @@
+.Assignation_button_cnt{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+
+}
+
+.Assignation_button_cnt2 {
+    margin: 20px;
+}
+
+.Assin_feature_to_group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+} 
+
+.Assin_feature_to_group > span{
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.Assignation_group_btn1 {
+    width: 80px;
+    height: 33px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    text-align: center !important;
+    font-size: 15px;
+    margin-left: 3px;
+}
+
+.Assignation_button_cnt > button{
+    margin-left:10px;
+    width: 90px;
+
+}
+
+.Assignation_button_cnt2 > button{
+    margin-left:10px;
+    width: 180px;
+
+}
+
+.Assignation_sub_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Assignation_group_btn2{
+    width: 145px;
+    height: 33px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    text-align: center !important;
+    font-size: 15px;
+}
+
+.Assignation_table_container{
+    margin: 0px 20px 20px 20px;
+}
+
+.group_displayed {
+    /* display: flex; */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    float: right;
+    margin: 20px 20px 0px 20px;
+    background-color: #424344;
+}
+
+.group_displayed span{
+    margin-right: 10px;
+    width: 70px;
+    height: 30px;
+    border: 1px solid #424344;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+.dropright{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.AssignationAdFeature_search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}

@@ -1,0 +1,62 @@
+.logo{
+    height: 30px;
+    width: 30px;
+    margin-right: 15px;
+}
+
+.hero{
+    margin: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.default_footer{
+    position: fixed;
+    /* bottom: 10%; */
+    margin: 2%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-text{
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    margin-left: 8%;
+    margin-right: 3%;
+}
+
+.features-section{
+    margin-top: 70px;
+    width: 100%;
+    background-color: rgba(33, 37, 41, 1);
+    border-radius: 5px;
+}
+
+.features{
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-top{
+    display: flex;
+}
+
+.feature-bottom{
+    display: flex;
+}
+
+.feature{
+    margin: 3%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.title{
+    font-weight:bolder;
+    font-size: 24px;
+}

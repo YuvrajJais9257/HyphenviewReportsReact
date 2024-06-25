@@ -1,0 +1,110 @@
+.user_managemet_btn2{
+    width: 130px;
+    height: 33px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    text-align: center !important;
+    font-size: 15px;
+    padding: 0%;
+    margin-left: 3px;
+    
+}
+
+.user_managemet_btn1{
+    width: 350px;
+    height: 33px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    text-align: center !important;
+    font-size: 15px;
+    padding: 0%;
+    margin-left: 3px; 
+}
+
+.user_management_page{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    margin: 10px;
+    align-items: center;
+}
+
+.user_management_page > span{
+    margin-right:5px;
+    cursor: pointer;
+}
+
+.user_management_page > button{
+    margin-left:10px;
+    /* width: 350px; */
+}
+
+.user_management_search{
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
+
+
+.user-search{
+    float: right;
+    /* width: 300px; */
+}
+.user-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.user-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.User_export_csv{
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    box-sizing: border-box;
+    width: 30px;
+    height: 25px;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.user_report_search{
+    display: flex;
+    align-items: center;
+}
+
+.User_export_csv span{
+   margin-left: 10px ;
+   
+}
+
+.user_export_search_cotainer{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 20px 0px;
+    align-items: center;
+
+}
+
+.user_management_table_content{
+    margin: 20px;
+    overflow: scroll;
+}
+
+.user_management_table_container{
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,38 @@
+.Add_Group_container {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(105, 179, 221, 0.5);
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 3; 
+}
+
+.inputGroupContainer{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+}
+
+.Add_Group_container .popup__box svg {
+    float: right;
+    margin: 0.5rem 1rem;
+    width: 12px;
+    fill: rgb(248, 115, 115);
+    cursor: pointer;
+}
+.Add_Group_container .popup__box {
+    position: relative; 
+    background: white;
+    border-radius: 10px;  
+    padding: 1rem;
+    width: 50%;
+    
+}
+
+

@@ -1,0 +1,32 @@
+
+.High_chart_type{
+    display: flex;
+    align-items: center;
+    margin: 40px;
+    justify-content: center;
+}
+.High_chart_type .previchartcnt{
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    width: 1200px;
+    /* height: 600px; */
+    border: 1px solid black;
+    /* margin: 50px; */
+    border-radius: 5px;
+
+}
+
+.Preview_button_cnt{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+}
+
+.Preview_button_cnt button{
+    width: 100px;
+    margin-right: 10px;
+
+}
+

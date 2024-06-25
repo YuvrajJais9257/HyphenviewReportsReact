@@ -1,0 +1,23 @@
+{"series" : [],
+  "title" : {
+    "text" : ""
+  },
+  "tooltip" : {
+    "shared" : true
+  },
+  "xAxis" :[{
+    "categories" : [],
+    "crosshair" : "true"
+  }],
+  "yAxis" : [ {
+    "min" : 0,
+    "title" : {
+      "text" : "Values"
+    }
+  }, {
+    "opposite" : true,
+    "title" : {
+      "text" : "Time"
+    }
+  } ]
+}

@@ -1,0 +1,14 @@
+{
+    "mysql_host":"localhost",
+    "mysql_port":3306,
+    "mysql_username":"root",
+    "mysql_password":"Admin123*",
+    "mysql_schema":"hyphenviewdba",
+    "mysql_new_schema":"hyphenview_new_release_test",
+
+    "postgres_host":"",
+    "postgres_port":5432,
+    "postgres_username":"",
+    "postgres_password":"",
+    "postgres_schema":""
+}

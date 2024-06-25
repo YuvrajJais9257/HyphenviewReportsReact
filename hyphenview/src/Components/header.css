@@ -1,0 +1,52 @@
+.header__profile_notification {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header__profile_notification .header__profile_blank {
+    background-color: whitesmoke;
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__profile_notification > svg {
+    width: 15px;
+    height: 16px;
+    fill: white;
+}
+
+.header_dropdown{
+    background-color: #ffffff !important;
+    
+    height:fit-content !important; 
+    position: absolute !important;
+   
+    
+    text-align:center !important;
+    top:8vh !important;
+    right: 4vw !important;
+    border-radius: .5rem !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+    padding: .6rem !important;
+    
+}
+.header .dropdown .log-out{
+    
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    background-color: #ffffff;
+    margin:0 auto;
+    font-size: 10px;
+    border-bottom: #09243309 solid thin;
+    border-radius: .2rem;
+    
+}
+.dropdown .log-out:hover{
+    background-color: rgb(246, 246, 246);
+    cursor: pointer;
+}

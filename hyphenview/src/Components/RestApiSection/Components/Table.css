@@ -1,0 +1,28 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  /* input[type="text"] {
+    width: 100%;
+    padding: 1px;
+    box-sizing: border-box;
+  } */
+
+  /* input[type="checkbox"] {
+    margin: 0;
+    padding: 10px;
+    width: auto;
+  } */

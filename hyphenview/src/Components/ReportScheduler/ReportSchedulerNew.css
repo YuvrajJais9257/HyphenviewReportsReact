@@ -1,0 +1,188 @@
+/* #main-container{
+    margin:12px;
+}
+#form-container{
+    text-align: center;
+    vertical-align: middle;
+    margin: 20px;
+}
+#report-scheduler-form{
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+}
+#big-container{
+    align-items: center;
+}
+
+.react-datepicker-wrapper{
+    width: 100%;
+  }
+  
+.label{
+    text-align: right;
+    color: black;
+    font-style: normal;
+    margin-top: 10px;
+    margin-bottom: 12px;
+}
+.icon-container{
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+}
+.button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+*{
+    font-size: 0.9rem;
+}
+
+
+.schedule_report_container {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    margin: 10px;
+    align-items: center;
+}
+
+.schedule_report_container > span {
+    margin-right: 5px;
+    cursor: pointer;
+}
+#form-container{
+    
+    vertical-align: middle;
+    margin: 20px;
+}
+#report-scheduler-form{
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+}
+#big-container{
+    align-items: center;
+}
+.label{
+    text-align: right;
+    color: black;
+    font-style: normal;
+    margin-top: 10px;
+    margin-bottom: 12px;
+}
+.icon-container{
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+}
+.schedule-time-icon-container{
+    padding-right: 6px;
+}
+.start-date-icon-container{
+    padding-right: 7px;
+}
+.excel-icon-container{
+    padding-right: 9px;
+}
+.report-display-icon-container{
+    padding-right: 8px;
+}
+.button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dropdown-button-container{
+    /* flex:1; */
+    width: 300px;
+    height:40px;
+}
+.unordered-list-container{
+    margin:0;
+    padding: 0;
+    position: absolute;
+    z-index: 3;
+    top: 40px;
+    width: 300px;
+    left: 25px;
+    /* flex: 1; */
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+  }
+  .dropdown-setter-button{
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    color: #212529;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    width:100%;
+    height: 28px;
+    font-size: 0.9rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .dropdown-setter-button:hover{
+    background-color: #fff;
+    color: #212529;
+    border: 1px solid #dee2e6;
+  }
+  .icon-container.title-icon{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 4px;
+    width:25px;
+  }
+  /* .input-group{
+    width: 75%;
+  } */
+
+  .input-group .btn:focus{
+     z-index: none !important;
+  }
+  .react-datepicker-wrapper{
+    width: 100%;
+  }
+  .react-datepicker__input-container input{
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+
+  .search-bar-holder{
+    padding: 5px 5px 5px 30px;
+    width: 119%;
+  }
+  /* li{
+    padding-left: 27px;
+  } */
+  .form-control{
+    font-size: 0.9rem;
+  }
+  .react-multi-email{
+    height:32px;
+    overflow: auto;
+    overflow-x: hidden;
+  }
+  .react-multi-email input{
+    height:25px;
+    overflow: auto;
+    overflow-x: hidden;
+  }
+  #email-body-textarea{
+    height: 60px;
+  }
+  .external-button-container{
+    display: flex;
+    justify-content: center;
+  }
+  
