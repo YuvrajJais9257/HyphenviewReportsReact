@@ -1,4 +1,4 @@
-.recommended-adjustments {
+.recommended_adjustments {
     position: fixed;
     top:0;
     left: 0;
@@ -19,7 +19,7 @@
     fill: rgb(248, 115, 115);
     cursor: pointer;
 } */
-.recommended-adjustments .popup__box {
+.recommended_adjustments .popup__box {
     position: relative;
     
     background: white;
@@ -44,7 +44,7 @@
    
 }
 
-.recommended-adjustments .popup__box svg {
+.recommended_adjustments .popup__box svg {
     float: right;
     margin: 0.5rem 1rem;
     width: 12px;

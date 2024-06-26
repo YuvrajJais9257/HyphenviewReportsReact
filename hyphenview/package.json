@@ -72,7 +72,7 @@
     "xmlbuilder2": "^3.1.1"
   },
   "scripts": {
-    "start": "set HTTPS=true && react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -94,5 +94,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }

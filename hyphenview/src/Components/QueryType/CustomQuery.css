@@ -130,11 +130,10 @@
     color: white; /* Adjust padding as needed */
   }
   
-  /* Additional styling for the last button to remove right margin */
   .custom-btn:last-child {
     margin-right: 0;
   }
-  /* Add more styles as needed */
+
   img.charts_img{
     height: 35px;
     width: 35px;

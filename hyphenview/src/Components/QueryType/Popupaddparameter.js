@@ -1,6 +1,6 @@
 import React from 'react'
 import { CloseIcon } from "../../assets/Icons";
-import './Popupaddparameter.css'
+import style from './Popupaddparameter.module.css'
 import { useDispatch } from 'react-redux';
 import { Button } from './../globalCSS/Button/Button';
 import { Flag } from 'react-bootstrap-icons';
@@ -25,8 +25,8 @@ function Popupaddparameter({ formdata, setformdata, setpopupaddateparameter,seti
   }
 
   return (
-    <div className='recommended-adjustments'>
-      <div className='popup__box'>
+    <div className={style.recommended_adjustments}>
+      <div className={style.popup__box}>
         {/* <div className="form-group">
               <label className="col-md-4 control-label">Query</label>
               <div className="col-md-4 inputGroupContainer">
@@ -94,8 +94,8 @@ function Popupaddparameter({ formdata, setformdata, setpopupaddateparameter,seti
             </div>
           </div>
         </div>
-        <div className='Add_remove_data'>
-        <div className='save_changes_btn'><Button type='button' onClick={() => setpopupaddateparameter(false)}>Save</Button></div>
+        <div className={style.Add_remove_data}>
+        <div className={style.save_changes_btn}><Button type='button' onClick={() => setpopupaddateparameter(false)}>Save</Button></div>
         {/* <div className='save_changes_btn'><Button type='button' onClick={() => setpopupaddateparameter(false)}>Test Query</Button></div> */}
         </div>
         <p style={{ textAlign: 'bottom' }}>

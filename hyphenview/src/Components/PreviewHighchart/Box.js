@@ -135,10 +135,10 @@ function Box({ setChartreactcolour, setBackgroundcolor, setFontSize }) {
                     ) : null
                     }
 
-                    <p className={styles.previewTitle} style={{ fontSize: fontSizebox.font_size_title }}>
+                    <p className={styles.previewTitle} style={{ fontSize: fontSizebox.font_size_title,fontWeight: "800"}}>
                         {CustomeDetailOfReport.title}
                     </p>
-                    <div className={styles.previewContent} style={{ fontSize: fontSizebox.font_size_value }}>
+                    <div className={styles.previewContent} style={{ fontSize: fontSizebox.font_size_value,fontWeight: "800"}}>
                         {PreviewchartData}
                     </div>
 

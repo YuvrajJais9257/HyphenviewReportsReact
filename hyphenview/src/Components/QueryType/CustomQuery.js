@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./ReportPage.css";
+import "./CustomQuery.css";
 import imageUrl1 from "../Images/area.png";
 import imageUrl2 from "../Images/bar.png";
 import imageUrl3 from "../Images/column.png";

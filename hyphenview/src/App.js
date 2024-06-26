@@ -15,7 +15,6 @@ import ApexChart from './Components/ReportManagement/ApexChart';
 import Preview from './Components/Splitcheck/Preview';
 import PieChart from './Components/HighCharts/PieChart';
 import HighCharts from './Components/HighCharts/HighCharts';
-import BuildQuery from './Components/QueryType/BuildQuery';
 import CustomQuery from './Components/QueryType/CustomQuery';
 import UpdateCutomQuery from './Components/QueryType/UpdateCutomQuery';
 import ListOfReports from './Components/ReportManagement/ListOfReports';
@@ -74,12 +73,10 @@ function App() {
         <Route path="/hyphenview/SplitView" element={<DndProvider backend={HTML5Backend}><SplitView key={SplitView} /></DndProvider>} />
         <Route path="/hyphenview/Preview" element={<Preview />} />
         <Route path="/hyphenview/HighCharts" element={<HighCharts />} />
-        <Route path="/hyphenview/BuildQuery" element={<BuildQuery />} />
         <Route path="/hyphenview/CustomQuery" element={<CustomQuery />} />    
         <Route path="/hyphenview/UpdateReportPage" element={<UpdateCutomQuery />} />    
         <Route path="/hyphenview/ListOfReports" element={<ListOfReports />} />
         <Route path="/hyphenview/PreviewPage" element={<PreviewPage />} />
-        <Route path="/hyphenview/BuildQuery" element={<BuildQuery />} />
         <Route path="/hyphenview/BuildQueryNew" element={<BuildQueryNew />} />
         <Route path="/hyphenview/ReportTable" element={<ReportTable />} />
         <Route path="/hyphenview/ConnectionForm" element={<ConnectionForm />} />
