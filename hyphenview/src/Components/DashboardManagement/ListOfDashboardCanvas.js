@@ -53,12 +53,12 @@ function ListOfDashboardCanvas() {
 
 
   // Handler for deleting a dashboard frame
-  const handelremoveDashboardframe = (value) => {
+  const handelremoveDashboardframe = (value,group_id,groupname) => {
     try {
       const userConfirmed = window.confirm("Are you sure you want to delete this Canvas?");
 
       if (userConfirmed) {
-        dispatch(deletecanvashframe({ customer_id: user.customer_id, frame_name: value, database_type: "mysql" }, history));
+        dispatch(deletecanvashframe({ customer_id: user.customer_id, frame_name: value,groupname:groupname, group_id: group_id, database_type: "mysql" }, history));
       } else {
         console.log("User canceled the operation.");
       }
@@ -157,8 +157,8 @@ function ListOfDashboardCanvas() {
                   <td>{reportdata.groupname}</td>
                   <td>{reportdata.dashboard_description}</td>
                   <td >
-                    {<span><i style={{ marginLeft: "5px", cursor: 'pointer', color: '0d6efd', pointerEvents: ['d'].every(value => reportsManagementObject.accessmask.includes(value)) ? 'auto' : 'none', color: ['d'].every(value => reportsManagementObject.accessmask.includes(value)) ? '#0d6efd' : 'grey' }} onClick={() => handelremoveDashboardframe(reportdata.dashboard_report_name)} className="fa-solid fa-trash-can"></i><span style={{ fontSize: "15px", marginLeft: "3px" }}></span><span>/</span>
-                      <Link id={`dashboardframemovefy${reportdata.group_id}`} to={`/ModifiedCanvasPage?group_id=${reportdata.group_id}&dashboardreportname=${reportdata.dashboard_report_name}&groupname=${reportdata.groupname}`} style={{ fontWeight: "20px", pointerEvents: ['w'].every(value => [...reportdata.access].includes(value)) ? 'auto' : 'none', color: ['w'].every(value => [...reportdata.access].includes(value)) ? '#0d6efd' : 'grey' }} className="fa-solid fa-pen-to-square"></Link></span>}
+                    {<span><i style={{ marginLeft: "5px", cursor: 'pointer', color: '0d6efd', pointerEvents: ['d'].every(value => reportsManagementObject.accessmask.includes(value)) ? 'auto' : 'none', color: ['d'].every(value => reportsManagementObject.accessmask.includes(value)) ? '#0d6efd' : 'grey' }} onClick={() => handelremoveDashboardframe(reportdata.dashboard_report_name,reportdata.group_id,reportdata.groupname)} className="fa-solid fa-trash-can"></i><span style={{ fontSize: "15px", marginLeft: "3px" }}></span><span>/</span>
+                      <Link id={`dashboardframemovefy${reportdata.group_id}`} to={`/hyphenview/ModifiedCanvasPage?group_id=${reportdata.group_id}&dashboardreportname=${reportdata.dashboard_report_name}&groupname=${reportdata.groupname}`} style={{ fontWeight: "20px", pointerEvents: ['w'].every(value => [...reportdata.access].includes(value)) ? 'auto' : 'none', color: ['w'].every(value => [...reportdata.access].includes(value)) ? '#0d6efd' : 'grey' }} className="fa-solid fa-pen-to-square"></Link></span>}
                   </td>
                 </tr>
               ))}

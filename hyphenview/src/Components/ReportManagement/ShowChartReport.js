@@ -119,12 +119,10 @@ const ShowChartReport = () => {
           },
         }],
       };
-    }
-
-    if (chartType === 'pie') {
+    }else if (chartType === 'pie') {
       return {
         chart: { type: 'pie' },
-        title: { text: generatreportdetail.title || '' },
+        title: { text: generatreportdetail?.title || '' },
         tooltip: { valueSuffix: '%' },
         plotOptions: {
           series: {
@@ -160,8 +158,76 @@ const ShowChartReport = () => {
           })),
         }],
       };
-    }
+    }else if(chartType === '3dpie'){
+      return {
+        chart: {
+          type: 'pie',
+          options3d: {
+            enabled: true,
+            alpha: 45,
+            beta: 0
+          }
+        },
+        title: {
+          text: generatreportdetail?.title || '',
+        },
+        accessibility: {
+          point: {
+            valueSuffix: '%'
+          }
+        },
+        tooltip: {
+          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        credits: { enabled: false },
+        plotOptions: {
+          series: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+          },
+          pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            depth: 35,
+            dataLabels: {
+              enabled: true,
+              format: '{point.name}'
+            }
+          }
+        },
+        series: [
+          {
+            name: generatreportdetail.series[0].name,
+            colorByPoint: true,
+            data: generatreportdetail && generatreportdetail.series[0].data.map((name, index) => ([
+              name,
+              generatreportdetail && generatreportdetail.series[1].data[index]
+            ]))
+          }]
+      };
+       
 
+    }else if(chartType === '3d donut'){
+      return {
+        chart: { type: 'pie', options3d: { enabled: true, alpha: 45 } },
+        title: { text: generatreportdetail?.title || '', }, accessibility: { point: { valueSuffix: '%' } },
+        tooltip: { pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>' },
+        credits: { enabled: false },
+        plotOptions: { pie: { innerSize: 100, depth: 45 },series: {
+          allowPointSelect: true,
+          cursor: 'pointer'
+          ,} },
+        series: [{
+          name: generatreportdetail.series[0].name,
+          colorByPoint: true,
+          data: generatreportdetail && generatreportdetail.series[0].data.map((name, index) => ([
+            name,
+            generatreportdetail && generatreportdetail.series[1].data[index]
+          ]))
+        }]
+      };
+
+    }
     return {
       chart: { type: chartType },
       title: { text: generatreportdetail.title },
