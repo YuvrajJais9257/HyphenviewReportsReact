@@ -277,7 +277,7 @@ export default function UpdateReportPage(props) {
 
   const handleRadioChange = (event) => {
     const chartTypes = {
-      'Bar chart': 'bar',
+      'Bar Chart': 'bar',
       'Column Chart': 'column',
       'Line Chart': 'line',
       'Gauge Chart': 'gauge',

@@ -22,7 +22,8 @@ const initialState = {
         return { ...state, listofdashboardcanvasframe: action.data.dashboards, loading: false, error : null };
 
         case actionType.DELETE_CANVAS_FRAME:
-        return { ...state,  listofdashboardcanvasframe: state.listofdashboardcanvasframe.filter((dashboardname) =>dashboardname.dashboard_report_name != action.formData.frame_name), error : null };
+          console.log(action.formData,"action.formData.")
+        return { ...state,  listofdashboardcanvasframe: state.listofdashboardcanvasframe.filter((dashboardname) =>dashboardname.dashboard_report_name != action.formData.frame_name&&dashboardname.group_id != action.formData.group_id), error : null };
 
         case actionType.LIST_DASHBOARD_CANVAS_FRAME_NAME_WITH:
         return { ...state, listofdashboardcanvasframewithdisnict: action.data, loading: false, error : null };
