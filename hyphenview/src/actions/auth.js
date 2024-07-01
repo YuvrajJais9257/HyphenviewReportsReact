@@ -16,10 +16,10 @@ export const auth = (formData, router) => async (dispatch) => {
                 alert('User Have Not Assign Any Feature !')
             }
             else{
-                router('/hyphenview/Dashboard')
+                router('/Dashboard')
             }
         }else{ 
-            router('/hyphenview/Homepage')
+            router('/Homepage')
         }
     }catch (error) {
         console.log(error);
@@ -36,10 +36,10 @@ export const login = (formData, router) => async (dispatch) => {
            dispatch(auth(formData, router));
         }else if(data?.status_code === 400){
             logMessage(formData.username,data?.status_code,data?.message);
-           router("/hyphenview",{state:{message:"Invalid username or password"}})
+           router("",{state:{message:"Invalid username or password"}})
         }else {
             logMessage(formData.username,data?.status_code,data?.message);
-            router("/hyphenview",{state:{message:"Invalid username or password"}})
+            router("",{state:{message:"Invalid username or password"}})
         }
     }catch (error) {
         console.log(error.message);
@@ -59,7 +59,7 @@ export const databaseconnection = (formData, router) => async (dispatch) => {
         //    dispatch(auth(formData, router));
         }else if(data?.status==='success') {
             console.log(data, "response");
-            router('hyphenview/ApexChart')
+            router('/ApexChart')
             dispatch({ type: DB_CONNECTION, data });
            
         }
@@ -112,7 +112,7 @@ export const savereportTemplate = (formData, router) => async (dispatch) => {
         if (data?.message==='Report Template saved successfully.') {
             localStorage.removeItem("customeDetailOfReport");
             localStorage.removeItem("uploadLogo")
-            router('/hyphenview/ListOfReports')
+            router('/ListOfReports')
         }else {
             alert(data?.message);
         }
@@ -240,7 +240,7 @@ export const assigngrouptouser = (formData, router) => async (dispatch) => {
         if (data?.status === 'success') {
             alert(data?.message);
             if(user?.user_email_id === formData?.user_email){
-                router("/hyphenview",{state:{message:"Group Added Successfully!"}})   
+                router("",{state:{message:"Group Added Successfully!"}})   
             }  
         }else {
             alert(data?.message);
@@ -256,7 +256,7 @@ export const uploadicon = (formData, router) => async (dispatch) => {
         dispatch({ type: ASSIGN_GROUP_ID_TO_USER, data });
         if (data?.status === 'success') {
             alert(data?.message);
-            router("hyphenview/AssignationAndFeature",{state:{message:"Added feature with Icon Successfully!"}})     
+            router("/AssignationAndFeature",{state:{message:"Added feature with Icon Successfully!"}})     
         }else {
             alert(data?.message);
         }

@@ -258,7 +258,7 @@ export default function ReportPage(props) {
       'Stacked Bar Chart': 'stackbar',
       'Stacked Column Chart': 'stackcolumn',
       '3d Pie Chart': '3Dpie',
-      '3d Donut Chart': '3D donut',
+      '3d Donut Chart': '3Ddonut',
       '3d Area Chart': '3Darea',
       'speedometer': 'speedometer',
     };
@@ -280,7 +280,7 @@ export default function ReportPage(props) {
     e.preventDefault(formdata, "formdata");
     if (formdata.title && formdata.query && formdata.type) {
       localStorage.setItem("customeDetailOfReport", JSON.stringify(formdata));
-      history('/hyphenview/PreviewPage');
+      history('/PreviewPage');
     } else {
       alert("any field is missing select plz")
     }
@@ -428,7 +428,7 @@ export default function ReportPage(props) {
   };
 
   const handelclickgotoDashboard = () => {
-    history('/hyphenview/Dashboard')
+    history('/Dashboard')
   }
 
   return (

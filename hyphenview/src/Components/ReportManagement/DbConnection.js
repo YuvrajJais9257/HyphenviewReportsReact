@@ -35,7 +35,7 @@ function DbConnection({ DbType }) {
 
     // Handler for clicking on New Connection button
     const handelClickNewConnection = () => {
-        history('/hyphenview/ConnectionForm'); // Navigate to ConnectionForm page
+        history('/ConnectionForm'); // Navigate to ConnectionForm page
     };
 
     // State for selected schema/SID
@@ -53,7 +53,7 @@ function DbConnection({ DbType }) {
         } else {
             // Store selected schema/SID and database name in localStorage
             localStorage.setItem("SelectedSchema", JSON.stringify({ selectedSchema: selectedSchema, databasename: DbType }));
-            history('../hyphenview/BuildQueryNew'); // Navigate to BuildQueryNew page
+            history('../BuildQueryNew'); // Navigate to BuildQueryNew page
         }
     };
 
@@ -64,7 +64,7 @@ function DbConnection({ DbType }) {
         } else {
             // Store selected schema/SID and database name in localStorage
             localStorage.setItem("SelectedSchema", JSON.stringify({ selectedSchema: selectedSchema, databasename: DbType }));
-            history('../hyphenview/CustomQuery'); // Navigate to CustomQuery page
+            history('../CustomQuery'); // Navigate to CustomQuery page
         }
     };
 

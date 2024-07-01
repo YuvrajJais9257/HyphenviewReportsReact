@@ -207,7 +207,7 @@ const ShowChartReport = () => {
       };
        
 
-    }else if(chartType === '3d donut'){
+    }else if(chartType === '3ddonut'){
       return {
         chart: { type: 'pie', options3d: { enabled: true, alpha: 45 } },
         title: { text: generatreportdetail?.title || '', }, accessibility: { point: { valueSuffix: '%' } },
@@ -227,6 +227,31 @@ const ShowChartReport = () => {
         }]
       };
 
+    }else if(chartType === '3darea'){
+      return {
+          chart: {type: 'area',options3d: {enabled: true,alpha: 15,beta: 30,depth: 200}},
+          title: { text: generatreportdetail.title || '' },
+          accessibility: {keyboardNavigation: {seriesNavigation: {mode: 'serialize'}}},
+          lang: {accessibility: {axis: {
+                xAxisDescriptionPlural: 'The chart has 3 unlabelled X axes, ' +
+                  'one for each series.'
+              }}},
+          yAxis: {
+            title: {x: -40},labels: {format: '{value:,.0f}'},gridLineDashStyle: 'Dash'},
+          xAxis: { categories: generatreportdetail && generatreportdetail.xAxis[0].categories },
+          plotOptions: {area: {depth: 100,marker: {enabled: false},states: {inactive: {enabled: false}}}},
+          credits: { enabled: false },
+          series: generatreportdetail.series.filter((series, index) => {
+            if (index === 0) {
+              return !series.data.every(item => typeof item === 'string');
+            }
+            return true;
+          }).map((series) => ({
+            name: series.name,
+            data: series.data,
+          }))
+        
+      }
     }
     return {
       chart: { type: chartType },
@@ -255,10 +280,15 @@ const ShowChartReport = () => {
       },
       exporting: { enabled: access_mask.includes('p') },
       xAxis: { categories: generatreportdetail.xAxis.categories },
-      series: generatreportdetail.series.map((series) => ({
+      series: generatreportdetail.series.filter((series, index) => {
+        if (index === 0) {
+          return !series.data.every(item => typeof item === 'string');
+        }
+        return true;
+      }).map((series) => ({
         name: series.name,
         data: series.data,
-      })),
+      }))
     };
   }, [generatreportdetail, access_mask]);
 

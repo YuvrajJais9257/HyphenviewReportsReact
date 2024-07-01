@@ -44,7 +44,7 @@ function Login() {
      // Run on component mount
     useEffect(()=>{
         dispatch(loginmessage())
-		history('/hyphenview',{state:{}})
+		history('/',{state:{}})
        
 	},[])
 

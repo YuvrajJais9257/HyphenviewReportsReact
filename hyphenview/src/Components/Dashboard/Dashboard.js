@@ -52,6 +52,7 @@ function DashboardNew() {
     // feath frames from the api 
     const frameChartdata = apiData?.canvascreation.canvasframedetail;
     const listofallgroup = apiData?.newgroup.list_of_group;
+    console.log(frameChartdata,"frameChartdata")
 
 
    // Set user frames and use this frames data to showcase the dashboard
@@ -80,19 +81,19 @@ function DashboardNew() {
     // Navigation function for feature clicks
     const handleClickFeature = (feature) => {
         if (feature === 'User Management') {
-            history('/hyphenview/UserManagementList')
+            history('/UserManagementList')
         } else if (feature === 'Report Management') {
-            history('/hyphenview/ListOfReports')
+            history('/ListOfReports')
         } else if (feature === 'Report Scheduler') {
-            history('/hyphenview/ReportSchedulerList')
+            history('/ReportSchedulerList')
         } else if (feature === 'Dashboard Management') {
-            history('/hyphenview/ListOfDashboardCanvas')
+            history('/ListOfDashboardCanvas')
         }
     }
 
     // Navigation function for logout
     const handelClicklogout = () => {
-        history('/hyphenview/Profile')
+        history('/Profile')
     }
 
      // Handle user group change from dropdown
@@ -191,7 +192,7 @@ function DashboardNew() {
                                         /></span>
                                         <span id={isSidebarCollapsed ? 'logout_hide' : 'logout_show' } className='hide_menu'>User Profile</span>
                                     </span>
-                                    {/* {!isSidebarCollapsed && <span className='hide_menu'>LogOut</span>} */}
+
                                 </div>
                             </div>
                         </div>

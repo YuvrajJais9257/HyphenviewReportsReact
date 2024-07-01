@@ -62,7 +62,6 @@ function DrillDown() {
     const drilldownData = apiData?.reportmanagement.detaildatafordrilldown;
 
     const columns = drilldownData?.column_names || [];
-    console.log(columns, "columns");
     const [sortCriteria, setSortCriteria] = useState([
         { column: "", order: "asc" },
     ]);

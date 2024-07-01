@@ -270,7 +270,7 @@ const ReportSchedulerNew = () => {
     };
 
     dispatch(savenewSchedulereport(dataEntries,history))
-    console.log(dataEntries, "dataEntries")
+
 
   };
 

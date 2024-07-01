@@ -240,7 +240,7 @@ const ReportSchedulerNew = () => {
  
     // Redirect to dashboard
   const handelclickgotoDashboard = () => {
-    history('/hyphenview/Dashboard')
+    history('/Dashboard')
   }
  
   return (

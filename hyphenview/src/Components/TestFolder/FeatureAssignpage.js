@@ -168,15 +168,15 @@ const ReportManagement = () => {
     }
 
     const handelclickgotoDashboard = () => {
-        history('/hyphenview/Dashboard')
+        history('/Dashboard')
     }
 
     const handleRowToggle = () => {
-        history('/hyphenview/TestQery')
+        history('/TestQery')
     };
 
     const handelAddFeature = () => {
-        history('/hyphenview/FeatureAssign')
+        history('/FeatureAssign')
     }
 
     console.log(features, "repo")
@@ -237,8 +237,8 @@ const ReportManagement = () => {
                             <tr key={index}>
                                 <td class='dropright'>
                                     <span>{feature.name}</span>
-                                    <span>{feature.name === "Report Management" && <Link  to={`/hyphenview/TestQery?group_id=${addnewgroup}`} ><i style={{marginLeft:"5px", color:"black"}} class="fa-solid fa-caret-right"></i></Link>}</span>
-                                    <span>{feature.name === "Dashboard Management" && <Link  to={`/hyphenview/DashboardManagement?group_id=${addnewgroup}`} ><i style={{marginLeft:"5px", color:"black"}} class="fa-solid fa-caret-right"></i></Link>}</span>
+                                    <span>{feature.name === "Report Management" && <Link  to={`/TestQery?group_id=${addnewgroup}`} ><i style={{marginLeft:"5px", color:"black"}} class="fa-solid fa-caret-right"></i></Link>}</span>
+                                    <span>{feature.name === "Dashboard Management" && <Link  to={`/DashboardManagement?group_id=${addnewgroup}`} ><i style={{marginLeft:"5px", color:"black"}} class="fa-solid fa-caret-right"></i></Link>}</span>
                                 </td>
                                 <td style={{ textAlign: "center" }}>
                                     <input

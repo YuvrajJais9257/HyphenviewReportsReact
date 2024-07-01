@@ -40,15 +40,15 @@ function ListOfDashboardCanvas() {
 
   // Handlers for navigation
   const handelclickgotoDashboard = () => {
-    history('/hyphenview/Dashboard')
+    history('/Dashboard')
   }
 
   const handelclickCreateCanvash = () => {
-    history('/hyphenview/SplitView')
+    history('/SplitView')
   }
 
   const handelclickModifiedCanvash = () => {
-    history('/hyphenview/ModifiedCanvasPage')
+    history('/ModifiedCanvasPage')
   }
 
 
@@ -158,7 +158,7 @@ function ListOfDashboardCanvas() {
                   <td>{reportdata.dashboard_description}</td>
                   <td >
                     {<span><i style={{ marginLeft: "5px", cursor: 'pointer', color: '0d6efd', pointerEvents: ['d'].every(value => reportsManagementObject.accessmask.includes(value)) ? 'auto' : 'none', color: ['d'].every(value => reportsManagementObject.accessmask.includes(value)) ? '#0d6efd' : 'grey' }} onClick={() => handelremoveDashboardframe(reportdata.dashboard_report_name,reportdata.group_id,reportdata.groupname)} className="fa-solid fa-trash-can"></i><span style={{ fontSize: "15px", marginLeft: "3px" }}></span><span>/</span>
-                      <Link id={`dashboardframemovefy${reportdata.group_id}`} to={`/hyphenview/ModifiedCanvasPage?group_id=${reportdata.group_id}&dashboardreportname=${reportdata.dashboard_report_name}&groupname=${reportdata.groupname}`} style={{ fontWeight: "20px", pointerEvents: ['w'].every(value => [...reportdata.access].includes(value)) ? 'auto' : 'none', color: ['w'].every(value => [...reportdata.access].includes(value)) ? '#0d6efd' : 'grey' }} className="fa-solid fa-pen-to-square"></Link></span>}
+                      <Link id={`dashboardframemovefy${reportdata.group_id}`} to={`/ModifiedCanvasPage?group_id=${reportdata.group_id}&dashboardreportname=${reportdata.dashboard_report_name}&groupname=${reportdata.groupname}`} style={{ fontWeight: "20px", pointerEvents: ['w'].every(value => [...reportdata.access].includes(value)) ? 'auto' : 'none', color: ['w'].every(value => [...reportdata.access].includes(value)) ? '#0d6efd' : 'grey' }} className="fa-solid fa-pen-to-square"></Link></span>}
                   </td>
                 </tr>
               ))}

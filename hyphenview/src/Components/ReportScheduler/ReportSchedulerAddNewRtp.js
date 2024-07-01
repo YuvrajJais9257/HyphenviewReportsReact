@@ -64,7 +64,6 @@ const ReportSchedulerAddNewRtp = () => {
   useEffect(() => {
     
     if (reportupdatedetail && reportupdatedetail?.Schedulers) {
-      console.log("Updating report title...");
       const pdfValue = JSON.parse(reportupdatedetail.Schedulers.reportattachment).pdf;
       const seletedreportforpdf = reportdetail.filter(item => {
       return pdfValue.some(value => item.report_id===value);
@@ -153,17 +152,12 @@ const ReportSchedulerAddNewRtp = () => {
       interval,
       startDate: startdate,
     };
-
-    console.log("Submitted data:", dataEntries);
-    console.log(selectedReport[0].report_id, "SelectedReportId");
     dispatch(updatescheduleinfo(dataEntries, history));
   };
 
 
   const handleReportChange = (value) => {
-    console.log("Selected report value:", value);
     const report = reportdetail.filter((item) => item.report_name === value);
-    console.log("Selected report:", report);
     setSelectedReport(report);
   };
 

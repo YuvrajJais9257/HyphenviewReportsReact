@@ -10,7 +10,7 @@ export const  savenewSchedulereport= (formData, router) => async (dispatch) => {
         dispatch({type: LOADED });
         if (data?.status==='success') {
             alert(data.message)
-            router("/hyphenview/ReportSchedulerList",{state:{message:data.message}})
+            router("/ReportSchedulerList",{state:{message:data.message}})
         }else {
             alert(data.message);
         }
@@ -62,7 +62,7 @@ export const  updatescheduleinfo= (formData, router) => async (dispatch) => {
         dispatch({type: LOADED });
         if (data?.status==='success') {
            alert(data?.message)
-           router("/hyphenview/ReportSchedulerList",{state:{message:data.message}})
+           router("/ReportSchedulerList",{state:{message:data.message}})
         }else {
             alert(data?.message)
         }

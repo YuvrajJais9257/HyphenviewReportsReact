@@ -126,7 +126,7 @@ export const  updateReportdetail = (formData, router) => async (dispatch) => {
             localStorage.removeItem("customeDetailOfReport");
             localStorage.removeItem("uploadLogo");
             dispatch({ type: UPDATE_REPORT, data });
-            router('/hyphenview/ListOfReports')
+            router('/ListOfReports')
         }else {
             alert(data?.message);
         }

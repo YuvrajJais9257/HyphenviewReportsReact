@@ -116,7 +116,7 @@ function ReportSchedulerList() {
 
 
   const handelclickgotoDashboard = () => {
-    history('/hyphenview/Dashboard')
+    history('/Dashboard')
   }
   
   // it help to handel the remove schedule report 
@@ -137,7 +137,7 @@ function ReportSchedulerList() {
             <div className="Report_scheduler_page">
                 <span class="fas fa-house-user" aria-hidden="true" onClick={handelclickgotoDashboard}></span>
                 <span>/</span><span>Scheduled Reports for Dashboard</span>
-                <Button className='adding_new_schedule_report' onClick={() => history('/hyphenview/ReportSchedulerNew')}>New Scheduler for DashBoard Report</Button>
+                <Button className='adding_new_schedule_report' onClick={() => history('/ReportSchedulerNew')}>New Scheduler for DashBoard Report</Button>
                 {/* <span style={{ fontStyle: "italic", fontSize: "18px" }}>New Database</span> */}
             </div>
             <div className='Report_scheduler_container'>

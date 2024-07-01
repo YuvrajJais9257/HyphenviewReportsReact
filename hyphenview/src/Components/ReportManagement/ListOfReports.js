@@ -49,11 +49,11 @@ function ListOfReports() {
 
    // Navigate to Dashboard
   const handelclickgotoDashboard = () => {
-    history('/hyphenview/Dashboard')
+    history('/Dashboard')
   }
 
   const handelclickAddNewReport = () => {
-    history('/hyphenview/ApexChart')
+    history('/ApexChart')
   }
 
   let PageSize = 8
@@ -138,16 +138,16 @@ function ListOfReports() {
                   <td>{reportdata.chart_type}</td>
                   <td>{reportdata.drilldown}</td>
                   <td >
-                    {(reportdata.report_type === 'Table' || reportdata.report_type === 'Merged') ? <span> <Link id={`customeidwithtable${reportdata.report_id}`} to={`/hyphenview/UpdateReportPage?report_id=${reportdata.report_id}`} style={{ fontWeight: "20px", pointerEvents: ['e'].every(value => [...reportdata.access_mask].includes(value)) ? 'auto' : 'none', color: ['e'].every(value => [...reportdata.access_mask].includes(value)) ? 'none' : 'grey' }} className="fa-solid fa-pen-to-square"><span style={{ fontSize: "15px", marginLeft: "3px" }}></span></Link><span>/</span>
+                    {(reportdata.report_type === 'Table' || reportdata.report_type === 'Merged') ? <span> <Link id={`customeidwithtable${reportdata.report_id}`} to={`/UpdateReportPage?report_id=${reportdata.report_id}`} style={{ fontWeight: "20px", pointerEvents: ['e'].every(value => [...reportdata.access_mask].includes(value)) ? 'auto' : 'none', color: ['e'].every(value => [...reportdata.access_mask].includes(value)) ? 'none' : 'grey' }} className="fa-solid fa-pen-to-square"><span style={{ fontSize: "15px", marginLeft: "3px" }}></span></Link><span>/</span>
 
-                      <Link to={`/hyphenview/GenerateReport?report_id=${reportdata.report_id}`} id={`customeidgeneratewithtable${reportdata.report_id}`} style={{ fontWeight: "20px", pointerEvents: ['p', 'v'].some(value => [...reportdata.access_mask].includes(value)) ? 'auto' : 'none', color: ['p', 'v'].some(value => [...reportdata.access_mask].includes(value)) ? 'none' : 'grey' }} className="fa-solid fa-download"><span style={{ fontSize: "13px", marginLeft: "3px" }}></span></Link><span>/</span>
+                      <Link to={`/GenerateReport?report_id=${reportdata.report_id}`} id={`customeidgeneratewithtable${reportdata.report_id}`} style={{ fontWeight: "20px", pointerEvents: ['p', 'v'].some(value => [...reportdata.access_mask].includes(value)) ? 'auto' : 'none', color: ['p', 'v'].some(value => [...reportdata.access_mask].includes(value)) ? 'none' : 'grey' }} className="fa-solid fa-download"><span style={{ fontSize: "13px", marginLeft: "3px" }}></span></Link><span>/</span>
 
                       <i style={{ cursor: 'pointer', marginLeft: "5px", pointerEvents: ['d'].every(value => [...reportdata.access_mask].includes(value)) ? 'auto' : 'none',color: ['d'].every(value => [...reportdata.access_mask].includes(value)) ? '#0d6efd' : 'grey' }} id={`customeidremovewithtable${reportdata.report_id}`} onClick={() => handelremoveReport(reportdata.report_id)} className="fa-solid fa-trash-can"></i></span> :
 
-                      <span><Link id={`customeidwithchart${reportdata.report_id}`} to={`/hyphenview/UpdateReportPage?report_id=${reportdata.report_id}`} style={{ fontWeight: "20px", pointerEvents: ['e'].every(value => [...reportdata.access_mask].includes(value)) ? 'auto' : 'none', color : ['e'].every(value => [...reportdata.access_mask].includes(value)) ? 'none' : 'grey' }} className="fa-solid fa-pen-to-square"><span style={{ fontSize: "15px", marginLeft: "3px" }}></span></Link><span>/</span>
+                      <span><Link id={`customeidwithchart${reportdata.report_id}`} to={`/UpdateReportPage?report_id=${reportdata.report_id}`} style={{ fontWeight: "20px", pointerEvents: ['e'].every(value => [...reportdata.access_mask].includes(value)) ? 'auto' : 'none', color : ['e'].every(value => [...reportdata.access_mask].includes(value)) ? 'none' : 'grey' }} className="fa-solid fa-pen-to-square"><span style={{ fontSize: "15px", marginLeft: "3px" }}></span></Link><span>/</span>
 
-                        {reportdata.report_type === 'Chart' ? <Link id={`customeidwithchart${reportdata.report_id}`} to={`/hyphenview/ShowChartReport?report_id=${reportdata.report_id}&access_mask=${reportdata.access_mask}`} style={{ fontWeight: "20px", textDecoration: 'none', pointerEvents: ['v', 'p'].some(value => [...reportdata.access_mask].includes(value)) ? 'auto' : 'none',color: ['v', 'p'].some(value => [...reportdata.access_mask].includes(value)) ? 'none' : 'grey' }} class="fa-solid fa-eye" > <span style={{ fontSize: "15px", marginLeft: "3px" }}></span></Link> : 
-                        <Link id={`customeidwithbox${reportdata.report_id}`} to={`/hyphenview/ShowBoxchart?report_id=${reportdata.report_id}&access_mask=${reportdata.access_mask}`} style={{ fontWeight: "20px", textDecoration: 'none', pointerEvents: ['v', 'p'].some(value => [...reportdata.access_mask].includes(value)) ? 'auto' : 'none', color: ['v', 'p'].some(value => [...reportdata.access_mask].includes(value)) ? 'none' : 'grey' }} class="fa-solid fa-eye" > <span style={{ fontSize: "15px", marginLeft: "3px" }}></span></Link>}<span>/</span>
+                        {reportdata.report_type === 'Chart' ? <Link id={`customeidwithchart${reportdata.report_id}`} to={`/ShowChartReport?report_id=${reportdata.report_id}&access_mask=${reportdata.access_mask}`} style={{ fontWeight: "20px", textDecoration: 'none', pointerEvents: ['v', 'p'].some(value => [...reportdata.access_mask].includes(value)) ? 'auto' : 'none',color: ['v', 'p'].some(value => [...reportdata.access_mask].includes(value)) ? 'none' : 'grey' }} class="fa-solid fa-eye" > <span style={{ fontSize: "15px", marginLeft: "3px" }}></span></Link> : 
+                        <Link id={`customeidwithbox${reportdata.report_id}`} to={`/ShowBoxchart?report_id=${reportdata.report_id}&access_mask=${reportdata.access_mask}`} style={{ fontWeight: "20px", textDecoration: 'none', pointerEvents: ['v', 'p'].some(value => [...reportdata.access_mask].includes(value)) ? 'auto' : 'none', color: ['v', 'p'].some(value => [...reportdata.access_mask].includes(value)) ? 'none' : 'grey' }} class="fa-solid fa-eye" > <span style={{ fontSize: "15px", marginLeft: "3px" }}></span></Link>}<span>/</span>
 
                         <i style={{ marginLeft: "5px", cursor: 'pointer', pointerEvents: ['d'].every(value => [...reportdata.access_mask].includes(value)) ? 'auto' : 'none',color: ['d'].every(value => [...reportdata.access_mask].includes(value)) ? '#0d6efd' : 'grey' }} id={`customeidremovewithchart${reportdata.report_id}`} onClick={() => handelremoveReport(reportdata.report_id)} className="fa-solid fa-trash-can"></i></span>}
                     {/* <i style={{ color: "#00d2ff" }} onClick={history('/CustomQuery',{state: reportdata.report_id})} className="fa-solid fa-pen-to-square">/</i> */}

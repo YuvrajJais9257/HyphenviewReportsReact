@@ -157,7 +157,7 @@ function TableRow() {
     ]
 
     const handelclickgotoDashboard = () => {
-        history('/hyphenview/Dashboard')
+        history('/Dashboard')
     }
 
     const processData2 = (data) => {

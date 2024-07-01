@@ -245,7 +245,7 @@ const SplitView = () => {
   
   // Redirect to preview page
   const redurectPreviewPage = () => {
-    history('/hyphenview/Preview');
+    history('/Preview');
   };
 
   return (

@@ -843,7 +843,7 @@ const handleSqlFunctionChange = (index, func) => {
                             </div>
                             <div className='query_controls'>
                                 <button className='generatorQueryBtn' onClick={handleGenerateQuery}> Generate Query </button>
-                                <Link className='generatorQueryBtn2' to={`/hyphenview/CustomQuery?Query=${query}`}>Next </Link>
+                                <Link className='generatorQueryBtn2' to={`/CustomQuery?Query=${query}`}>Next </Link>
                             </div>
                         </div>
                     </div>

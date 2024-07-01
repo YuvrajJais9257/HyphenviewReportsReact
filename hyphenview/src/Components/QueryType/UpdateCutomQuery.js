@@ -288,7 +288,7 @@ export default function UpdateReportPage(props) {
       'Stacked Bar Chart': 'stackbar',
       'Stacked Column Chart': 'stackcolumn',
       '3d Pie Chart': '3Dpie',
-      '3d Donut Chart': '3D donut',
+      '3d Donut Chart': '3Ddonut',
       '3d Area Chart': '3Darea',
       'speedometer': 'speedometer',
     };
@@ -312,7 +312,7 @@ export default function UpdateReportPage(props) {
     } else {
       alert("any field is missing select plz")
     }
-    history('/hyphenview/PreviewPage');
+    history('/PreviewPage');
   }
  
   const handelTestQuery = async (e) => {
@@ -423,7 +423,7 @@ export default function UpdateReportPage(props) {
   };
  
   const handelclickgotoDashboard = () => {
-    history('/hyphenview/Dashboard')
+    history('/Dashboard')
   }
  
   console.log("formdata", formdata)

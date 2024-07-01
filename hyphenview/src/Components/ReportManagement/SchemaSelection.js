@@ -17,7 +17,7 @@ function SchemaSelection({ getSchema,databasename }) {
         } else {
             // Store selected schema and database name in localStorage
             localStorage.setItem("SelectedSchema", JSON.stringify({selectedSchema : selectedSchema,databasename : databasename}));
-            history('../hyphenview/BuildQueryNew')
+            history('../BuildQueryNew')
         }
     };
     
@@ -28,7 +28,7 @@ function SchemaSelection({ getSchema,databasename }) {
             alert("select shema")
         } else {
             localStorage.setItem("SelectedSchema", JSON.stringify({selectedSchema : selectedSchema,databasename : databasename}));
-            history('../hyphenview/CustomQuery')
+            history('../CustomQuery')
         }
     };
 

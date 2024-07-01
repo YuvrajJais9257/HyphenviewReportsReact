@@ -1,0 +1,108 @@
+.sidebarcnt {
+  width: 250px;
+  height: 100vh;
+  background-color: rgba(33, 37, 41, 1);
+  color: #fff;
+  /* transition: width 0.3s; */
+  z-index: 1;
+  overflow: hidden;
+  position: fixed;
+}
+
+.New_SideBar_item {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 10px;
+  cursor: pointer;
+  /* line-height: 30px; */
+  transition: background-color 0.3s ease;
+  list-style: none;
+}
+
+.listofall-feature{
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+  text-wrap: nowrap;
+}
+
+.sidebarcnt.closed {
+  width: 80px;
+}
+
+.toggle-btn-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+}
+
+.toggle-btn.closed {
+  background-color: #444;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  text-align: left;
+}
+.toggle-btn.open{
+  background-color: #444;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+}
+
+.profile_logo {
+  height: 30px;
+  width: 30px;
+}  
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  padding: 15px 20px;
+}
+
+.menu-item a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center; /* Align items vertically centered */
+}
+
+.menu-item div {
+  color: #fff;
+  text-decoration: none;
+  text-wrap: nowrap;
+  display: flex;
+  align-items: center; /* Align items vertically centered */
+}
+
+.dashboard_sidebar_icons {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0; /* Prevent the icon from shrinking */
+}
+
+.dashboard_sidebar_icons_fixed {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 3px;
+  margin-left: 2px;
+}
+
+.dashboard_sidebar_feature_names {
+  margin-left: 10px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  flex-grow: 1; /* Allow the label to take up available space */
+}

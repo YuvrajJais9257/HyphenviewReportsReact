@@ -141,7 +141,7 @@ function DashboardManagement() {
   };
 
   const handelclickgotoDashboard = () => {
-    history('/hyphenview/Dashboard')
+    history('/Dashboard')
   }
   
    // Handle save report action

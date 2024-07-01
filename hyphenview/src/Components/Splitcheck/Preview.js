@@ -32,7 +32,7 @@ const Seeonother = () => {
 
 
   const handelShowDashboard = () =>{
-    history('/hyphenview/Dashboard')
+    history('/Dashboard')
   }
 
   // const chartdetaidata = apiData?.get_report_formate_data;

@@ -316,7 +316,7 @@ const ReportSchedulerUpdateNew = () => {
 
   // Redirect to dashboard
   const handelclickgotoDashboard = () => {
-    history('/hyphenview/Dashboard')
+    history('/Dashboard')
   }
  
   return (

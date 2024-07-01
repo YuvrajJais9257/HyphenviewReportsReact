@@ -10,7 +10,7 @@ const ProtectedRoute = ({ Component }) => {
     const location = useLocation();
 
     if (!user || !user.group_id) {
-        return <Navigate to="/app" state={{ from: location }} replace />;
+        return <Navigate to="/" state={{ from: location }} replace />;
     }
 
     return <Component />;

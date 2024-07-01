@@ -32,7 +32,7 @@ function BoxPreview({ Boxdata }) {
 
   const openNewWindow = (datav) => {
     const queryString = new URLSearchParams(datav).toString();
-    const newWindow =  window.open(`/hyphenview/drillDown?${queryString}`, '_blank', 'width=600,height=400');
+    const newWindow =  window.open(`/drillDown?${queryString}`, '_blank', 'width=600,height=400');
     newWindow.document.close();
   };
   

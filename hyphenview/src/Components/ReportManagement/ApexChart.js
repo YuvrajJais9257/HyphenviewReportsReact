@@ -37,7 +37,7 @@ export default function ShowButtonHover() {
     const handleConnectClick = (event, type) => {
         event.preventDefault();
         if (type === "restapi") {
-            history('/hyphenview/HomePage')
+            history('/HomePage')
         } else {
             setDbType(type);
             setShowDbConnection(true);
@@ -60,7 +60,7 @@ export default function ShowButtonHover() {
 
     // Function to navigate to Dashboard
     const handelclickgotoDashboard = () => {
-        history('/hyphenview/Dashboard');
+        history('/Dashboard');
     };
 
     return (

@@ -25,7 +25,7 @@ import * as api from '../api/index.js';
                 setTimeout(alert(data?.message), 2000);
                 dispatch({ type: ADD_GROUP, formData });
                 dispatch({ type: MESSAGE_ADD_GROUP, data });
-                router("/hypenview/AssignationAndFeature",{state:{message:"Group Added Successfully!"}})     
+                router("/AssignationAndFeature",{state:{message:"Group Added Successfully!"}})     
             }else {
                 dispatch({ type: MESSAGE_ADD_GROUP, data });
             }

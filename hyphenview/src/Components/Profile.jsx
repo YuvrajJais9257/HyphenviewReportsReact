@@ -10,7 +10,7 @@ const Profile = () => {
 
   const history = useNavigate();
   const handelClicklogout = () => {
-    history("/hyphenview");
+    history("/");
   };
 
   return (

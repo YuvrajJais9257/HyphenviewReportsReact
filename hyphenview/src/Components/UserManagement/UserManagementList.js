@@ -70,11 +70,11 @@ function UserManagementList() {
     }, [selectaccessmask]);
 
     const handelclickgotoDashboard = () => {
-        history('/hyphenview/Dashboard')
+        history('/Dashboard')
     }
 
     const handelclickAddNewReport = () => {
-        history('/hyphenview/NewUser')
+        history('/NewUser')
     }
 
     useEffect(() => {
@@ -115,11 +115,11 @@ function UserManagementList() {
 
     const handelclicktoAssignation = () =>{
         // history('/AssignationAndFeature')
-        history('/hyphenview/FeatureAssignpage')
+        history('/FeatureAssignpage')
     }
 
     const handelclickGroupupdate = () =>{
-        history('/hyphenview/ReportAsination')
+        history('/ReportAsination')
     }
     const handelclick = async(e) => {
         try {

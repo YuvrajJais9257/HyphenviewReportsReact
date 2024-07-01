@@ -234,7 +234,7 @@ function PreviewPage() {
   // Function to handle back button
   const handelbackbuttonchange = async () => {
     localStorage.setItem("backcustomeDetailOfReport", JSON.stringify(storedetailtoback));
-    history('/hyphenview/DataFromBackPage')
+    history('/DataFromBackPage')
   }
    
   return (

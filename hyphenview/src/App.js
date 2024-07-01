@@ -53,7 +53,7 @@ import DrillDown from './Components/HighCharts/DrillDown';
 import DashboardManagement from './Components/DashboardManagement/DashboardManagement'
 import ListOfDashboardCanvas from './Components/DashboardManagement/ListOfDashboardCanvas'
 import Geomap from './Components/HighCharts/geomap';
-// import NewDashboard from './Components/NewDasboard/NewDashboard';
+import NewDashboard from './Components/NewDashboard/NewDashboard';
 import ProtectedRoute from './Components/utils/ProtectedRoute';
 
 // import ReportDashBoardNew from './Components/DefaultPage/ReportDashBoardNew';
@@ -67,49 +67,49 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/hyphenview" element={<Login />} />  
-        <Route path="/hyphenview/Dashboard" element={<ProtectedRoute Component = {Dashboard}/>} />
-        <Route path="/hyphenview/ApexChart" element={<ApexChart />} />
-        <Route path="/hyphenview/SplitView" element={<DndProvider backend={HTML5Backend}><SplitView key={SplitView} /></DndProvider>} />
-        <Route path="/hyphenview/Preview" element={<Preview />} />
-        <Route path="/hyphenview/HighCharts" element={<HighCharts />} />
-        <Route path="/hyphenview/CustomQuery" element={<CustomQuery />} />    
-        <Route path="/hyphenview/UpdateReportPage" element={<UpdateCutomQuery />} />    
-        <Route path="/hyphenview/ListOfReports" element={<ListOfReports />} />
-        <Route path="/hyphenview/PreviewPage" element={<PreviewPage />} />
-        <Route path="/hyphenview/BuildQueryNew" element={<BuildQueryNew />} />
-        <Route path="/hyphenview/ReportTable" element={<ReportTable />} />
-        <Route path="/hyphenview/ConnectionForm" element={<ConnectionForm />} />
-        <Route path="/hyphenview/UserManagementList" element={<UserManagementList />} />
-        <Route path="/hyphenview/NewUser" element={<NewUser/>} />
-        <Route path="/hyphenview/ReportSchedulerList" element={<ReportSchedulerList/>} />
-        <Route path="/hyphenview/ReportSchedulerAddNewRtp" element={<ReportSchedulerAddNewRtp/>} />
-        <Route path="/hyphenview/GenerateReport" element={<GenerateReport/>} />
-        <Route path="/hyphenview/NewFeature" element={<NewFeature/>} />
-        <Route path="/hyphenview/ReportAsination" element={<ReportAsination/>} />
-        <Route path="/hyphenview/AssignationAndFeature" element={<AssignationAndFeature/>}/>
-        <Route path="/hyphenview/ResetPassword" element={<ResetPassword/>}/>
-        <Route path="/hyphenview/FeatureAssign" element={<FeatureAssign/>}/>
-        <Route path="/hyphenview/ModifiedCanvasPage" element={<ModifiedCanvasPage/>}/>
-        <Route path="/hyphenview/HomePage" element={<DataProvider><HomePage /></DataProvider>} />
-        <Route path="/hyphenview/ReportSchedulerUpdate" element={<ReportSchedulerUpdate/>}/>
-        <Route path="/hyphenview/ReportSchedulerNew" element={<ReportSchedulerNew/>}/>
-        <Route path="/hyphenview/TableRow" element={<TableRow/>}/>
-        <Route path="/hyphenview/TestQery" element={<TestQery/>}/>
-        <Route path="/hyphenview/FeatureAssignpage" element={<FeatureAssignpage/>}/>
-        <Route path="/hyphenview/ShowChartReport" element={<ShowChartReport/>}/>
-        <Route path="/hyphenview/PieChart" element={<PieChart/>}/>
-        <Route path="/hyphenview/ShowBoxchart" element={<ShowBoxchart/>}/>
-        <Route path="/hyphenview/DataFromBackPage" element={<DataFromBackPage/>}/>
-        <Route path="/hyphenview/json-to-ui" element={<ConvertToCSV/>}/>
-        <Route path="/hyphenview/profile" element={<Profile />} />
-        <Route path="/hyphenview/SampleQueryForDrilldown" element={<SampleQueryForDrilldown/>}/>
-        <Route path="/hyphenview/drillDown" element={<DrillDown/>} />
-        <Route path="/hyphenview/DashboardManagement" element={<DashboardManagement />} />
-        <Route path="/hyphenview/Geomap" element={<Geomap />} />
-        {/* <Route path="/hyphenview/NewDasboard" element={<NewDashboard />} /> */}
-        <Route path="/hyphenview/ListOfDashboardCanvas" element={<ListOfDashboardCanvas />} />
-        {/* <Route path="/hyphenview/ReportDashBoardNew" element={<ReportDashBoardNew/>}/> */}
+        <Route path="/" element={<Login />} />  
+        <Route path="/Dashboard" element={<ProtectedRoute Component = {Dashboard}/>} />
+        <Route path="/ApexChart" element={<ApexChart />} />
+        <Route path="/SplitView" element={<DndProvider backend={HTML5Backend}><SplitView key={SplitView} /></DndProvider>} />
+        <Route path="/Preview" element={<Preview />} />
+        <Route path="/HighCharts" element={<HighCharts />} />
+        <Route path="/CustomQuery" element={<CustomQuery />} />    
+        <Route path="/UpdateReportPage" element={<UpdateCutomQuery />} />    
+        <Route path="/ListOfReports" element={<ListOfReports />} />
+        <Route path="/PreviewPage" element={<PreviewPage />} />
+        <Route path="/BuildQueryNew" element={<BuildQueryNew />} />
+        <Route path="/ReportTable" element={<ReportTable />} />
+        <Route path="/ConnectionForm" element={<ConnectionForm />} />
+        <Route path="/UserManagementList" element={<UserManagementList />} />
+        <Route path="/NewUser" element={<NewUser/>} />
+        <Route path="/ReportSchedulerList" element={<ReportSchedulerList/>} />
+        <Route path="/ReportSchedulerAddNewRtp" element={<ReportSchedulerAddNewRtp/>} />
+        <Route path="/GenerateReport" element={<GenerateReport/>} />
+        <Route path="/NewFeature" element={<NewFeature/>} />
+        <Route path="/ReportAsination" element={<ReportAsination/>} />
+        <Route path="/AssignationAndFeature" element={<AssignationAndFeature/>}/>
+        <Route path="/ResetPassword" element={<ResetPassword/>}/>
+        <Route path="/FeatureAssign" element={<FeatureAssign/>}/>
+        <Route path="/ModifiedCanvasPage" element={<ModifiedCanvasPage/>}/>
+        <Route path="/HomePage" element={<DataProvider><HomePage /></DataProvider>} />
+        <Route path="/ReportSchedulerUpdate" element={<ReportSchedulerUpdate/>}/>
+        <Route path="/ReportSchedulerNew" element={<ReportSchedulerNew/>}/>
+        <Route path="/TableRow" element={<TableRow/>}/>
+        <Route path="/TestQery" element={<TestQery/>}/>
+        <Route path="/FeatureAssignpage" element={<FeatureAssignpage/>}/>
+        <Route path="/ShowChartReport" element={<ShowChartReport/>}/>
+        <Route path="/PieChart" element={<PieChart/>}/>
+        <Route path="/ShowBoxchart" element={<ShowBoxchart/>}/>
+        <Route path="/DataFromBackPage" element={<DataFromBackPage/>}/>
+        <Route path="/json-to-ui" element={<ConvertToCSV/>}/>
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/SampleQueryForDrilldown" element={<SampleQueryForDrilldown/>}/>
+        <Route path="/drillDown" element={<DrillDown/>} />
+        <Route path="/DashboardManagement" element={<DashboardManagement />} />
+        <Route path="/Geomap" element={<Geomap />} />
+        <Route path="/NewDashboard" element={<NewDashboard />} />
+        <Route path="/ListOfDashboardCanvas" element={<ListOfDashboardCanvas />} />
+        {/* <Route path="/ReportDashBoardNew" element={<ReportDashBoardNew/>}/> */}
       </Routes>
     </div>
   );

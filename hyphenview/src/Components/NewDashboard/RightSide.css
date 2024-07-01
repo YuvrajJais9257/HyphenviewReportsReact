@@ -1,0 +1,39 @@
+.user_dashboard_tabs{
+    border-radius: 15px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: rgba(33,37,41,1);
+  }
+
+  /* .dashboard-content {
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 10px;
+  }
+  
+  .normal-tab {
+    background-color: #b4d5d5;
+    color: #1a4568;
+  }
+  
+  .selected-tab {
+    background-color: #20596e;
+    color: #ffffff;
+  }
+  
+  .user-dashboard-tabs {
+    margin-bottom: 10px;
+  }
+  
+  .active-tab-item, .tab-item {
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .layout {
+    display: flex;
+    flex-wrap: wrap;
+  }
+   */

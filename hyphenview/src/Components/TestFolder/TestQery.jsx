@@ -185,7 +185,7 @@ const ReportManagement = () => {
 
 
   const handelclickgotoDashboard = () => {
-    history('/hyphenview/Dashboard')
+    history('/Dashboard')
   }
 
   console.log(reports,"repo")

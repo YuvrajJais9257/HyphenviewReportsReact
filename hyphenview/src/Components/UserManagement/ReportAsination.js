@@ -28,7 +28,7 @@ function ReportAsination() {
   console.log(listofallgroup, "listofallgroup")
 
   const handelclickgotoDashboard = () => {
-    history('/hyphenview/Dashboard')
+    history('/Dashboard')
   }
 
 

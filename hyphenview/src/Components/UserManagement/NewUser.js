@@ -81,7 +81,7 @@ function NewUser() {
                 <Header />
             </div>
             <div className="New_user_management_page">
-                <span className="fas fa-house-user" aria-hidden="true" onClick={() => history('/hyphenview/Dashboard')}></span>
+                <span className="fas fa-house-user" aria-hidden="true" onClick={() => history('/Dashboard')}></span>
                 <span>/</span>
                 <span>User Management</span>
                 {/* <Button onClick={() => history(-1)}>New User</Button> */}

@@ -12,7 +12,7 @@ function Header() {
 
     // dispatch({ type: actionType.LOGOUT });
 
-    history('/hyphenview');
+    history('');
 
 
   };
@@ -36,7 +36,7 @@ function Header() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
-              <li className="nav-item" onClick={() => history('/hyphenview/Dashboard')}>
+              <li className="nav-item" onClick={() => history('/Dashboard')}>
                 <a className="nav-link active" aria-current="page" href="#">
                   Dashboard
                 </a>
@@ -49,7 +49,7 @@ function Header() {
 
               {userfeature.includes('User Management') && (<li
                 className="nav-item"
-                onClick={() => history('/hyphenview/UserManagementList')}
+                onClick={() => history('/UserManagementList')}
               >
                 <a className="nav-link" href="#">
                   User Management
@@ -58,7 +58,7 @@ function Header() {
               {userfeature.includes('Report Management') && (
                 <li
                   className="nav-item"
-                  onClick={() => history('/hyphenview/ListOfReports')}
+                  onClick={() => history('/ListOfReports')}
                 >
                   <a className="nav-link" href="#">
                     Reports Management
@@ -67,7 +67,7 @@ function Header() {
               {userfeature.includes('Report Scheduler') && (
                 <li
                   className="nav-item"
-                  onClick={() => history('/hyphenview/ReportSchedulerList')}
+                  onClick={() => history('/ReportSchedulerList')}
                 >
                   <a className="nav-link" href="#">
                     Reports Scheduled
@@ -87,7 +87,7 @@ function Header() {
               {userfeature.includes('Dashboard Management') && (
                 <li
                   className="nav-item"
-                  onClick={() => history('/hyphenview/ListOfDashboardCanvas')}
+                  onClick={() => history('/ListOfDashboardCanvas')}
                 >
                   <a className="nav-link" href="#">
                     Dashboard Management
