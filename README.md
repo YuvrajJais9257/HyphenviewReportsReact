@@ -78,6 +78,7 @@ UIToJSONFromDataPage
 
 BoxReportPreview
 ![BoxReport](screenShots/ReportManagement/TablePreview/BoxPreview.png)
+![BoxReportPreviewTwo](screenShots/ReportManagement/TablePreview/BoxPreview2.png)
 
 ChartReportPreview
 ![ChartReport](screenShots/ReportManagement/TablePreview/ChartPreview.png)
