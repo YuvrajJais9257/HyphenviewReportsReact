@@ -22,7 +22,9 @@ HyphenView is a self-service Business Intelligence & Data Visualization Platform
 ## Screenshots
 
 ### Dashboard Management
-![Dashboard](screenshots/dashboard.png)
+![DashboardCreation](screenShots/DashbaordManagement/DashboardCreation.png)
+![DashboardManagement](screenShots/DashbaordManagement/DashboardManagement.png)
+![DashboardOverview](screenShots/DashbaordManagement/DashboardSideBar.png)
 
 ### Report Management
 ![Report](screenshots/report.png)
