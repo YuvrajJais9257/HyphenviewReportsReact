@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { render } from 'react-dom';
-import { json, useLocation, useNavigate, usehistory } from 'react-router-dom';
-import './PreviewPage.css'
-import PreviewHighchart from '../PreviewHighchart/PreviewHighchart';
-import PreviewReportTable from '../PreviewHighchart/PreviewReportTable';
-import Box from '../PreviewHighchart/Box';
-import { savereportTemplate } from '../../actions/auth'
-import { updateReportdetail } from '../../actions/reportmanagement'
-import { useDispatch, useSelector } from 'react-redux';
-import { Button } from './../globalCSS/Button/Button';
-import Header from '../header'
+import React, { useEffect, useState } from "react";
+import { render } from "react-dom";
+import { json, useLocation, useNavigate, usehistory } from "react-router-dom";
+import "./PreviewPage.css";
+import PreviewHighchart from "../PreviewHighchart/PreviewHighchart";
+import PreviewReportTable from "../PreviewHighchart/PreviewReportTable";
+import Box from "../PreviewHighchart/Box";
+import { savereportTemplate } from "../../actions/auth";
+import { updateReportdetail } from "../../actions/reportmanagement";
+import { useDispatch, useSelector } from "react-redux";
+import { Button } from "./../globalCSS/Button/Button";
+import Header from "../header";
 
 function PreviewPage() {
-  
   // Define initial state for component
   const insitialstateofcomp = {
     report_name: "",
@@ -27,38 +26,52 @@ function PreviewPage() {
     background_colour: "",
     // show_in_dashboard: "",
     chart_react_colour: "",
-    font_size_title:"",
-    font_size_value:"",
+    font_size_title: "",
+    font_size_value: "",
+    status_value: "",
+    status_value_color: "",
     email: "",
     database_type: "",
     connection_type: "",
     schema: "",
     display_order: 1,
-    upload_logo: ""
-  }
+    upload_logo: "",
+  };
 
   // Define state variables
   const [CustomDetail, setCustomDetail] = useState(insitialstateofcomp);
-  const [background_colour1, setBackgroundcolor] = useState('#ffffff');
-  const [chart_react_colour1, setChartreactcolour] = useState('#000000');
-  const [fontSize, setFontSize] = useState({font_size_title:'',font_size_value:''})
-  console.log(fontSize,"fontSize")
+  const [background_colour1, setBackgroundcolor] = useState("#ffffff");
+  const [chart_react_colour1, setChartreactcolour] = useState("#000000");
+  const [fontSize, setFontSize] = useState({
+    font_size_title: "",
+    font_size_value: "",
+  });
+  const [statusValue, setStatusValue] = useState("");
+  const [statusValueColor, setStatusValueColor] = useState("");
+
+  console.log(fontSize, "fontSize");
   const [storedetailtoback, setStoredetailtoback] = useState();
   const dispatch = useDispatch();
 
   const history = useNavigate(); // useNavigate instead of useHistory
   const apiData = useSelector((state) => state); // Redux state
   const reportdetail = apiData?.auth.box_color_data; // Report detail from Redux store
-  const user = JSON.parse(localStorage.getItem('profile')); // User data from localStorage
-  const CustomeDetailOfReport = JSON.parse(localStorage.getItem('customeDetailOfReport')); // Custom detail from localStorage
-  const selectedShemasection = JSON.parse(localStorage.getItem('SelectedSchema')); // Selected schema from localStorage
-  console.log(CustomeDetailOfReport,"CustomeDetailOfReport")
-  
+  const user = JSON.parse(localStorage.getItem("profile")); // User data from localStorage
+  const CustomeDetailOfReport = JSON.parse(
+    localStorage.getItem("customeDetailOfReport")
+  ); // Custom detail from localStorage
+  const selectedShemasection = JSON.parse(
+    localStorage.getItem("SelectedSchema")
+  ); // Selected schema from localStorage
+  console.log(CustomeDetailOfReport, "CustomeDetailOfReport");
+
   // Effect to initialize state based on custom detail
-  
+
   useEffect(() => {
     let newstateofcomp;
-    const CustomeDetailOfReport = JSON.parse(localStorage.getItem('customeDetailOfReport'))
+    const CustomeDetailOfReport = JSON.parse(
+      localStorage.getItem("customeDetailOfReport")
+    );
     const reportdetail = apiData?.auth?.box_color_data;
     if (CustomeDetailOfReport != null) {
       newstateofcomp = {
@@ -75,85 +88,173 @@ function PreviewPage() {
         database_type: "mysql",
         connection_type: CustomeDetailOfReport?.connection_type,
         schema: CustomeDetailOfReport?.schema,
-        display_order: 1
-      }
-      if (!CustomeDetailOfReport.report_id && CustomeDetailOfReport.type === "Box") {
-        const newObj = { ...newstateofcomp, background_colour: background_colour1, chart_react_colour: chart_react_colour1,font_size_title:fontSize.font_size_title,font_size_value:fontSize.font_size_value }
+        display_order: 1,
+      };
+      if (
+        !CustomeDetailOfReport.report_id &&
+        CustomeDetailOfReport.type === "Box"
+      ) {
+        const newObj = {
+          ...newstateofcomp,
+          background_colour: background_colour1,
+          chart_react_colour: chart_react_colour1,
+          font_size_title: fontSize.font_size_title,
+          font_size_value: fontSize.font_size_value,
+          status_value: statusValue,
+          status_value_color: statusValueColor,
+        };
         const base64String = localStorage.getItem("uploadLogo");
         let formData = new FormData();
         if (base64String) {
           // Convert base64-encoded string back to a file object
           fetch(base64String)
-            .then(res => res.blob())
-            .then(blob => {
+            .then((res) => res.blob())
+            .then((blob) => {
               const file = new File([blob], "logo.png", { type: "image/png" });
-              formData.append('file', file);
-              formData.append('report_template_name', JSON.stringify(newObj));
-              setStoredetailtoback({ ...newstateofcomp, background_colour: background_colour1, chart_react_colour: background_colour1,font_size_title:fontSize.font_size_title,font_size_value:fontSize.font_size_value, upload_logo: null })
+              formData.append("file", file);
+              formData.append("report_template_name", JSON.stringify(newObj));
+              setStoredetailtoback({
+                ...newstateofcomp,
+                background_colour: background_colour1,
+                chart_react_colour: background_colour1,
+                font_size_title: fontSize.font_size_title,
+                font_size_value: fontSize.font_size_value,
+                status_value: statusValueColor,
+                status_value_color: statusValueColor,
+                upload_logo: null,
+              });
             });
-        }
-        else {
+        } else {
           // formData.append('file', null);
-          formData.append('report_template_name', JSON.stringify(newObj));
-          setStoredetailtoback({ ...newstateofcomp, background_colour: background_colour1, chart_react_colour: background_colour1,font_size_title:fontSize.font_size_title,font_size_value:fontSize.font_size_value, upload_logo: null })
+          formData.append("report_template_name", JSON.stringify(newObj));
+          setStoredetailtoback({
+            ...newstateofcomp,
+            background_colour: background_colour1,
+            chart_react_colour: background_colour1,
+            font_size_title: fontSize.font_size_title,
+            font_size_value: fontSize.font_size_value,
+            status_value: statusValueColor,
+            status_value_color: statusValueColor,
+            upload_logo: null,
+          });
         }
         setCustomDetail(formData);
-      } else if (!CustomeDetailOfReport.report_id && CustomeDetailOfReport.type === "Table") {
+      } else if (
+        !CustomeDetailOfReport.report_id &&
+        CustomeDetailOfReport.type === "Table"
+      ) {
         let formData = new FormData();
-        formData.append('report_template_name', JSON.stringify(newstateofcomp));
-        setStoredetailtoback(newstateofcomp)
+        formData.append("report_template_name", JSON.stringify(newstateofcomp));
+        setStoredetailtoback(newstateofcomp);
         setCustomDetail(formData);
-      } else if (!CustomeDetailOfReport.report_id && CustomeDetailOfReport.type === "Chart") {
+      } else if (
+        !CustomeDetailOfReport.report_id &&
+        CustomeDetailOfReport.type === "Chart"
+      ) {
         let formData = new FormData();
-        formData.append('report_template_name', JSON.stringify(newstateofcomp));
-        setStoredetailtoback(newstateofcomp)
+        formData.append("report_template_name", JSON.stringify(newstateofcomp));
+        setStoredetailtoback(newstateofcomp);
         setCustomDetail(formData);
-      }
-
-      else if (CustomeDetailOfReport.report_id && CustomeDetailOfReport.type === "Box") {
-        let localnewObj = { ...newstateofcomp, report_id: CustomeDetailOfReport.report_id, background_colour: CustomeDetailOfReport?.background_colour, chart_react_colour: CustomeDetailOfReport?.chart_react_colour,font_size_title:CustomeDetailOfReport.font_size_title,font_size_value:CustomeDetailOfReport.font_size_value }
+      } else if (
+        CustomeDetailOfReport.report_id &&
+        CustomeDetailOfReport.type === "Box"
+      ) {
+        let localnewObj = {
+          ...newstateofcomp,
+          report_id: CustomeDetailOfReport.report_id,
+          background_colour: CustomeDetailOfReport?.background_colour,
+          chart_react_colour: CustomeDetailOfReport?.chart_react_colour,
+          font_size_title: CustomeDetailOfReport.font_size_title,
+          font_size_value: CustomeDetailOfReport.font_size_value,
+          status_value: CustomeDetailOfReport.status_value,
+          status_value_color: CustomeDetailOfReport.status_value_color,
+        };
         const base64String = localStorage.getItem("uploadLogo");
         let formData = new FormData();
         if (base64String) {
           fetch(base64String)
-            .then(res => res.blob())
-            .then(blob => {
+            .then((res) => res.blob())
+            .then((blob) => {
               const file = new File([blob], "logo.png", { type: "image/png" });
 
-              formData.append('file', file);
-              formData.append('details', JSON.stringify(localnewObj));
-              setStoredetailtoback({ ...newstateofcomp, report_id: CustomeDetailOfReport.report_id, background_colour: background_colour1, chart_react_colour: background_colour1,font_size_title:fontSize.font_size_title,font_size_value:fontSize.font_size_value, upload_logo: CustomeDetailOfReport?.upload_logo })
+              formData.append("file", file);
+              formData.append("details", JSON.stringify(localnewObj));
+              setStoredetailtoback({
+                ...newstateofcomp,
+                report_id: CustomeDetailOfReport.report_id,
+                background_colour: background_colour1,
+                chart_react_colour: background_colour1,
+                font_size_title: fontSize.font_size_title,
+                font_size_value: fontSize.font_size_value,
+                status_value: statusValueColor,
+                status_value_color: statusValueColor,
+                upload_logo: CustomeDetailOfReport?.upload_logo,
+              });
               setCustomDetail(formData);
             });
         } else {
           // formData.append('file', null);
-          localnewObj = { ...newstateofcomp, report_id: CustomeDetailOfReport.report_id, background_colour: CustomeDetailOfReport?.background_colour, chart_react_colour: CustomeDetailOfReport?.chart_react_colour, upload_logo: CustomeDetailOfReport?.upload_logo,font_size_title:CustomeDetailOfReport.font_size_title,font_size_value:CustomeDetailOfReport.font_size_value }
-          formData.append('details', JSON.stringify(localnewObj));
-          setStoredetailtoback({ ...newstateofcomp, report_id: CustomeDetailOfReport.report_id, background_colour: background_colour1, chart_react_colour: background_colour1,font_size_title:fontSize.font_size_title,font_size_value:fontSize.font_size_value, upload_logo: CustomeDetailOfReport?.upload_logo })
+          localnewObj = {
+            ...newstateofcomp,
+            report_id: CustomeDetailOfReport.report_id,
+            background_colour: CustomeDetailOfReport?.background_colour,
+            chart_react_colour: CustomeDetailOfReport?.chart_react_colour,
+            upload_logo: CustomeDetailOfReport?.upload_logo,
+            font_size_title: CustomeDetailOfReport.font_size_title,
+            font_size_value: CustomeDetailOfReport.font_size_value,
+            status_value: CustomeDetailOfReport.status_value,
+            status_value_color: CustomeDetailOfReport.status_value_color,
+          };
+          formData.append("details", JSON.stringify(localnewObj));
+          setStoredetailtoback({
+            ...newstateofcomp,
+            report_id: CustomeDetailOfReport.report_id,
+            background_colour: background_colour1,
+            chart_react_colour: background_colour1,
+            font_size_title: fontSize.font_size_title,
+            font_size_value: fontSize.font_size_value,
+            status_value: statusValueColor,
+            status_value_color: statusValueColor,
+            upload_logo: CustomeDetailOfReport?.upload_logo,
+          });
           setCustomDetail(formData);
         }
-        
+
         // setStoredetailtoback(localnewObj)
-      } else if (CustomeDetailOfReport.report_id && CustomeDetailOfReport.type === "Table") {
-        const newObj = { ...newstateofcomp, report_id: CustomeDetailOfReport.report_id }
+      } else if (
+        CustomeDetailOfReport.report_id &&
+        CustomeDetailOfReport.type === "Table"
+      ) {
+        const newObj = {
+          ...newstateofcomp,
+          report_id: CustomeDetailOfReport.report_id,
+        };
         let formData = new FormData();
-        formData.append('details', JSON.stringify(newObj));
+        formData.append("details", JSON.stringify(newObj));
         setCustomDetail(formData);
-        setStoredetailtoback(newObj)
-      } else if (CustomeDetailOfReport.report_id && CustomeDetailOfReport.type === "Chart") {
-        const newObj = { ...newstateofcomp, report_id: CustomeDetailOfReport.report_id }
+        setStoredetailtoback(newObj);
+      } else if (
+        CustomeDetailOfReport.report_id &&
+        CustomeDetailOfReport.type === "Chart"
+      ) {
+        const newObj = {
+          ...newstateofcomp,
+          report_id: CustomeDetailOfReport.report_id,
+        };
         let formData = new FormData();
-        formData.append('details', JSON.stringify(newObj));
+        formData.append("details", JSON.stringify(newObj));
         setCustomDetail(formData);
-        setStoredetailtoback(newObj)
+        setStoredetailtoback(newObj);
       }
     }
-  }, [])
-  
-   // Effect to update state based on background and chart colors
+  }, []);
+
+  // Effect to update state based on background and chart colors
   useEffect(() => {
     let newstateofcomp;
-    const CustomeDetailOfReport = JSON.parse(localStorage.getItem('customeDetailOfReport'))
+    const CustomeDetailOfReport = JSON.parse(
+      localStorage.getItem("customeDetailOfReport")
+    );
     const reportdetail = apiData?.auth?.box_color_data;
     if (CustomeDetailOfReport != null) {
       newstateofcomp = {
@@ -170,57 +271,122 @@ function PreviewPage() {
         database_type: "mysql",
         connection_type: CustomeDetailOfReport?.connection_type,
         schema: CustomeDetailOfReport?.schema,
-        display_order: 1
-      }
-      if (!CustomeDetailOfReport.report_id && CustomeDetailOfReport.type === "Box") {
-        const newObj = { ...newstateofcomp, background_colour: background_colour1, chart_react_colour: chart_react_colour1,font_size_title:fontSize.font_size_title,font_size_value:fontSize.font_size_value }
+        display_order: 1,
+      };
+      if (
+        !CustomeDetailOfReport.report_id &&
+        CustomeDetailOfReport.type === "Box"
+      ) {
+        const newObj = {
+          ...newstateofcomp,
+          background_colour: background_colour1,
+          chart_react_colour: chart_react_colour1,
+          font_size_title: fontSize.font_size_title,
+          font_size_value: fontSize.font_size_value,
+          status_value: statusValue,
+          status_value_color: statusValueColor,
+        };
         const base64String = localStorage.getItem("uploadLogo");
         let formData = new FormData();
         if (base64String) {
           // Convert base64-encoded string back to a file object
           fetch(base64String)
-            .then(res => res.blob())
-            .then(blob => {
+            .then((res) => res.blob())
+            .then((blob) => {
               const file = new File([blob], "logo.png", { type: "image/png" });
-              formData.append('file', file);
-              formData.append('report_template_name', JSON.stringify(newObj));
-              setStoredetailtoback({ ...newstateofcomp, background_colour: background_colour1, chart_react_colour: chart_react_colour1,font_size_title:fontSize.font_size_title,font_size_value:fontSize.font_size_value, upload_logo: file })
+              formData.append("file", file);
+              formData.append("report_template_name", JSON.stringify(newObj));
+              setStoredetailtoback({
+                ...newstateofcomp,
+                background_colour: background_colour1,
+                chart_react_colour: chart_react_colour1,
+                font_size_title: fontSize.font_size_title,
+                font_size_value: fontSize.font_size_value,
+                status_value: statusValue,
+                status_value_color: statusValueColor,
+                upload_logo: file,
+              });
             });
-        }
-        else {
+        } else {
           // formData.append('file', null);
-          formData.append('report_template_name', JSON.stringify(newObj));
-          setStoredetailtoback({ ...newstateofcomp, background_colour: background_colour1, chart_react_colour: chart_react_colour1,font_size_title:fontSize.font_size_title,font_size_value:fontSize.font_size_value, upload_logo: null })
+          formData.append("report_template_name", JSON.stringify(newObj));
+          setStoredetailtoback({
+            ...newstateofcomp,
+            background_colour: background_colour1,
+            chart_react_colour: chart_react_colour1,
+            font_size_title: fontSize.font_size_title,
+            font_size_value: fontSize.font_size_value,
+            status_value: statusValue,
+            status_value_color: statusValueColor,
+            upload_logo: null,
+          });
         }
         setCustomDetail(formData);
-      }
-      else if (CustomeDetailOfReport.report_id && CustomeDetailOfReport.type === "Box") {
-        console.log("CustomeDetailOfReport**")
+      } else if (
+        CustomeDetailOfReport.report_id &&
+        CustomeDetailOfReport.type === "Box"
+      ) {
+        console.log("CustomeDetailOfReport**");
         const base64String = localStorage.getItem("uploadLogo");
-        const newobj = { ...newstateofcomp, report_id: CustomeDetailOfReport.report_id, background_colour: background_colour1, chart_react_colour: chart_react_colour1,font_size_title:fontSize.font_size_title,font_size_value:fontSize.font_size_value }
-        console.log(newobj,"newobj")
+        const newobj = {
+          ...newstateofcomp,
+          report_id: CustomeDetailOfReport.report_id,
+          background_colour: background_colour1,
+          chart_react_colour: chart_react_colour1,
+          font_size_title: fontSize.font_size_title,
+          font_size_value: fontSize.font_size_value,
+          status_value: statusValue,
+          status_value_color: statusValueColor,
+        };
+        console.log(newobj, "newobj");
         let formData = new FormData();
         if (base64String) {
           // Convert base64-encoded string back to a file object
           fetch(base64String)
-            .then(res => res.blob())
-            .then(blob => {
+            .then((res) => res.blob())
+            .then((blob) => {
               const file = new File([blob], "logo.png", { type: "image/png" });
-              formData.append('file', file);
-              formData.append('details', JSON.stringify(newobj));
-              setStoredetailtoback({ ...newstateofcomp, report_id: CustomeDetailOfReport.report_id, background_colour: background_colour1, chart_react_colour: chart_react_colour1,font_size_title:fontSize.font_size_title,font_size_value:fontSize.font_size_value, upload_logo: CustomeDetailOfReport.upload_logo })
+              formData.append("file", file);
+              formData.append("details", JSON.stringify(newobj));
+              setStoredetailtoback({
+                ...newstateofcomp,
+                report_id: CustomeDetailOfReport.report_id,
+                background_colour: background_colour1,
+                chart_react_colour: chart_react_colour1,
+                font_size_title: fontSize.font_size_title,
+                font_size_value: fontSize.font_size_value,
+                status_value: statusValue,
+                status_value_color: statusValueColor,
+                upload_logo: CustomeDetailOfReport.upload_logo,
+              });
               setCustomDetail(formData);
             });
         } else {
           // formData.append('file', null);
-          formData.append('details', JSON.stringify(newobj));
-          setStoredetailtoback({ ...newstateofcomp, report_id: CustomeDetailOfReport.report_id, background_colour: background_colour1, chart_react_colour: chart_react_colour1,font_size_title:fontSize.font_size_title,font_size_value:fontSize.font_size_value, upload_logo: CustomeDetailOfReport.upload_logo })
+          formData.append("details", JSON.stringify(newobj));
+          setStoredetailtoback({
+            ...newstateofcomp,
+            report_id: CustomeDetailOfReport.report_id,
+            background_colour: background_colour1,
+            chart_react_colour: chart_react_colour1,
+            font_size_title: fontSize.font_size_title,
+            font_size_value: fontSize.font_size_value,
+            status_value: statusValue,
+            status_value_color: statusValueColor,
+            upload_logo: CustomeDetailOfReport.upload_logo,
+          });
           setCustomDetail(formData);
         }
       }
     }
-  }, [background_colour1, chart_react_colour1,fontSize])
-  
+  }, [
+    background_colour1,
+    chart_react_colour1,
+    fontSize,
+    statusValue,
+    statusValueColor,
+  ]);
+
   // Function to save or update chart
   const handelSaveChart = async () => {
     if (!CustomeDetailOfReport.report_id) {
@@ -233,31 +399,51 @@ function PreviewPage() {
 
   // Function to handle back button
   const handelbackbuttonchange = async () => {
-    localStorage.setItem("backcustomeDetailOfReport", JSON.stringify(storedetailtoback));
-    history('/DataFromBackPage')
-  }
-   
+    localStorage.setItem(
+      "backcustomeDetailOfReport",
+      JSON.stringify(storedetailtoback)
+    );
+    history("/DataFromBackPage");
+  };
+
   return (
     <div>
-      <div className='Header'>
+      <div className="Header">
         <Header />
       </div>
-      <div className='preview_page_container'>
-        <div className='High_chart_type'>
-          <div className='previchartcnt'>
-            {CustomeDetailOfReport?.type === 'Table' ? <PreviewReportTable /> :
-              CustomeDetailOfReport?.type === 'Box' ? <Box CustomDetail={CustomDetail} setCustomDetail={setCustomDetail} setBackgroundcolor={setBackgroundcolor} setChartreactcolour={setChartreactcolour} fontSize={fontSize} setFontSize={setFontSize} /> :
-                CustomeDetailOfReport?.type === 'Chart' ? <PreviewHighchart /> : null}
+      <div className="preview_page_container">
+        <div className="High_chart_type">
+          <div className="previchartcnt">
+            {CustomeDetailOfReport?.type === "Table" ? (
+              <PreviewReportTable />
+            ) : CustomeDetailOfReport?.type === "Box" ? (
+              <Box
+                CustomDetail={CustomDetail}
+                setCustomDetail={setCustomDetail}
+                setBackgroundcolor={setBackgroundcolor}
+                setChartreactcolour={setChartreactcolour}
+                fontSize={fontSize}
+                setFontSize={setFontSize}
+                statusValue={statusValue}
+                setStatusValue={setStatusValue}
+                setStatusValueColor={setStatusValueColor}
+                statusValueColor={setStatusValueColor}
+              />
+            ) : CustomeDetailOfReport?.type === "Chart" ? (
+              <PreviewHighchart />
+            ) : null}
           </div>
         </div>
-        <div className='Preview_button_cnt'>
-          <Button type='button' onClick={handelbackbuttonchange} >Back</Button>
+        <div className="Preview_button_cnt">
+          <Button type="button" onClick={handelbackbuttonchange}>
+            Back
+          </Button>
           {/* <button type='button'>Preview</button> */}
           <Button onClick={handelSaveChart}>Save</Button>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default PreviewPage
+export default PreviewPage;

@@ -1,0 +1,9 @@
+.highcharts-background {
+    fill:#fff;
+}
+.highcharts-grid-line {
+    stroke:transparent
+}
+:root{
+    --highcharts-background-color:#fff;
+}

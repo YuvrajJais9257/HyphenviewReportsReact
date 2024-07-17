@@ -1,0 +1,31 @@
+/* CardLayout.css */
+.server_status_card-container {
+    padding: 20px;
+  }
+  
+  .server_status_card {
+    background-color: #f8f8f8;
+    margin-bottom: 10px;
+  }
+  
+  .server_status_card .groupname {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .server_status_card .has-access {
+    color: green;
+  }
+  
+  .server_status_card .no-access {
+    color: red;
+  }
+
+  .server_status_card .arrow-icon{
+    width: 30px;
+    height: 17px;
+  }
+  .card-body{
+    display: flex;
+  }
+  

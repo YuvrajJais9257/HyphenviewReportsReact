@@ -251,7 +251,7 @@ async def get_report_detail(user_details:dict):
             database_mysql = get_mysql_connection(mysql_database_url)
             with database_mysql.cursor(dictionary=True) as cursor:
                 cursor.execute(
-                    "select report_id, db_details_id, report_template_name, report_type, chart_type, defined_query, start_date, end_date, time_period, show_in_dashboard, enable_drilldown, auto_update_interval, background_colour, chart_react_colour,font_size_title,font_size_value,upload_logo from report_template where report_id = %s",(report_id,)
+                    "select report_id, db_details_id, report_template_name, report_type, chart_type, defined_query, start_date, end_date, time_period, show_in_dashboard, enable_drilldown, auto_update_interval, background_colour, chart_react_colour,font_size_title,font_size_value,upload_logo,status_value, status_value_color from report_template where report_id = %s",(report_id,)
                 )
                 result = cursor.fetchall()
                 db_details_id =result[0]["db_details_id"]
@@ -785,9 +785,11 @@ async def get_report_data_id(report_details:dict):
                     "select customer_id from user_account where user_email_id = %s",(email,)
                 )
                 result = cursor.fetchall()
+                
                 customer_id = result[0]["customer_id"]
                 cursor.execute("select * from report_template where report_id = %s and customer_id = %s",(report_id,customer_id))
                 result = cursor.fetchall()
+                
                 report_type = result[0]["report_type"]
                 query = result[0]["defined_query"]
                 chart_type = result[0]["chart_type"]
@@ -801,6 +803,8 @@ async def get_report_data_id(report_details:dict):
                 font_size_title = result[0]["font_size_title"]
                 font_size_value = result[0]["font_size_value"]
                 report_title = result[0]["report_template_name"]
+                status_value = result[0]["status_value"]
+                status_value_color = result[0]["status_value_color"]
                
                    
                 cursor.execute("SELECT * FROM database_details WHERE db_details_id = %s",(db_details_id,))
@@ -922,7 +926,7 @@ async def get_report_data_id(report_details:dict):
                     report_value = result[0][report_key]
                 else:
                     report_value = result[0][0]
-                box_value_id = {"box_value_id": report_value,"backgroung_color":background_colour,"chart_react_color":chart_react_colour,"font_size_title":font_size_title,"font_size_value":font_size_value, "report_type": report_type.lower(),"report_title" : report_title,"logo_path":logo_path}
+                box_value_id = {"box_value_id": report_value,"backgroung_color":background_colour,"chart_react_color":chart_react_colour,"font_size_title":font_size_title,"font_size_value":font_size_value, "report_type": report_type.lower(),"report_title" : report_title,"logo_path":logo_path,"status_value":status_value,"status_value_color":status_value_color}
                 return (box_value_id)
             elif report_type.lower() == "table":
                 final_result = {}
@@ -932,6 +936,7 @@ async def get_report_data_id(report_details:dict):
                     final_result["column_names"] = column_names
                     final_result["data"] = result
                     final_result["report_type"] = report_type.lower()
+                    final_result["report_title"] = report_title
                     return final_result
                 elif db_type == 'postgres':
                     res = cursor.description
@@ -939,6 +944,7 @@ async def get_report_data_id(report_details:dict):
                     final_result["column_names"] = column_names
                     final_result["data"] = result
                     final_result["report_type"] = report_type.lower()
+                    final_result["report_title"] = report_title
                     return final_result
     except Exception as unexpected_exception:
         #print(f"Unexpected error: {unexpected_exception}")
@@ -1731,4 +1737,40 @@ async def getdata(details:dict):
             cursor.close()
         if "database_mysql" in locals() and database_mysql:
             database_mysql.close()
+
+@app.get('/getGroupDashboardAccess')
+async def root():
+    try:
+        mysql_database_url = {
+            "host": conf["mysql_host"],
+            "port": conf["mysql_port"],
+            "username": conf["mysql_username"],
+            "password": conf["mysql_password"],
+            "schema": conf["mysql_new_schema"]
+        }
+        database_mysql = get_mysql_connection(mysql_database_url)
  
+        with database_mysql.cursor(dictionary=True) as cursor:
+            cursor.execute("""SELECT 
+                            user_group.groupname,
+                            CASE 
+                                WHEN dashboard_access_right.group_id IS NOT NULL THEN 'True'
+                                ELSE 'False'
+                            END AS has_dashboard_access
+                        FROM 
+                            user_group
+                        LEFT JOIN 
+                            dashboard_access_right
+                        ON 
+                            user_group.group_id = dashboard_access_right.group_id""")
+            result = cursor.fetchall()
+            return result
+    except Exception as unexpected_exception:
+        print(f"Unexpected error: {unexpected_exception}")
+        raise HTTPException(status_code=500, detail="Internal server error: {}".format(unexpected_exception))
+
+    finally:
+        if "cursor" in locals() and cursor:
+            cursor.close()
+        if "database_mysql" in locals() and database_mysql:
+            database_mysql.close()

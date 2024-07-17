@@ -42,6 +42,17 @@
   .sort-options-select {
     width: 150px;
   }
+
+  th{
+    text-wrap: nowrap;
+  }
+
+  #back-to-page-nav-btn{
+    height: fit-content;
+    margin: 1%;
+  }
+
+
   
   .filter-toggle-btn {
     border: 1px solid #999;
@@ -56,6 +67,7 @@
     width: 30px;
     height: 35px;
     margin-left: 5px;
+    margin: 1%;
   }
   .sort-remove-icon{
     width: 30px;
@@ -67,6 +79,10 @@
   }
   .remove-filter-item-btn{
     border-radius: 50%;
+    margin: 1%;
+  }
+  .sort-options-select{
+    margin: 1%;
   }
   #sort-by-btn{
     border: 1px solid #999;
@@ -98,10 +114,16 @@
 .dt-search{
     margin-top: 12px;
     margin: 1%;
+    display: flex;
+}
+
+.dtSearch-magnifyingGlassIcon{
+  transform: translate(-10px, 5px);
 }
 
 .dt-length{
     margin: 1%;
+    display: flex;
 }
 .table-container-div{
     width: 100%;
@@ -109,6 +131,16 @@
 #myTable{
     width: 100% !important;
 }
+
+/* .dt-buttons{
+  display: flex;
+  justify-content: end;
+} */
+ .wrapper-of-backButton-and-dtButtons{
+  display: flex;
+  justify-content: space-between;
+ }
+
 
 .Generate_table_button_subContainer button{
   margin-right: 5px;
@@ -120,6 +152,42 @@
   margin: 1%;
 }
 
+.dt-info{
+  text-align: center;
+}
+
+.dt-paging{
+  margin: 1%;
+  text-align: center;
+}
+
 .dt-scroll{
   margin: 1%;
+}
+
+.dt-buttons{
+  margin: 1%;
+}
+.dt-button-collection{
+  margin: 1%;
+  max-width: 96%;
+}
+
+.dt-button-collection label{
+  margin-left: 3%;
+}
+
+.wrapper-of-dtLength-and-dtSearch{
+  display: flex;
+  justify-content: space-between;
+}
+
+.dt-length label{
+  transform: translate(10px, 5px);
+}
+
+
+
+table.dataTable th.dt-type-numeric, table.dataTable th.dt-type-date, table.dataTable td.dt-type-numeric, table.dataTable td.dt-type-date {
+  text-align: left;
 }

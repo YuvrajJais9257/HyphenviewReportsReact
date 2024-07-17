@@ -10,23 +10,23 @@ const CustomDropdown = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(null);
- 
-   // Function to handle mouse enter event on an option
+
+  // Function to handle mouse enter event on an option
   const handleMouseEnter = (index) => {
     setHighlightedIndex(index);
   };
- 
-   // Function to handle mouse leave event from an option
+
+  // Function to handle mouse leave event from an option
   const handleMouseLeave = () => {
     setHighlightedIndex(null);
   };
- 
-   // Function to handle click event on an option
+
+  // Function to handle click event on an option
   const handleOptionClick = (option) => {
     onOptionSelect(option.value);
     setIsOpen(false);
   };
- 
+
   return (
     <div className="custom-dropdown">
       <span id="dashboard-icon-container" onClick={() => setIsOpen(!isOpen)}>
@@ -45,7 +45,7 @@ const CustomDropdown = ({
         Dashboard
         <img src={RightPopOutIcon} id="right-popout-activate-icon" />
       </span>
- 
+
       {isOpen && (
         <div
           className="dropdown-content-groupname"
@@ -76,5 +76,5 @@ const CustomDropdown = ({
     </div>
   );
 };
- 
+
 export default CustomDropdown;

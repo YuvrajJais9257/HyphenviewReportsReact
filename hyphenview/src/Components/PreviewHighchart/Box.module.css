@@ -54,6 +54,26 @@
     background-color: #f9f9f9;
 }
 
+.status_value_controlsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 17%;
+    margin-left: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.icon-for-display{
+    width: 30px;
+    height: 24px;
+}
+
 .controlItem {
     display: flex;
     flex-direction: column;
