@@ -33,54 +33,71 @@ HyphenView is a self-service Business Intelligence & Data Visualization Platform
 
 1. Create New Report Connection (Via Databases)
 
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
+![CreateNewReportConnection](screenShots/ReportManagement/NewReportCreation/CreateNewReportConnection.png)
+![NewMySQLConnection](screenShots/ReportManagement/NewReportCreation/NewMysqlConnection.png)
+![TypesOfReportConnections](screenShots/ReportManagement/NewReportCreation/TypesOfReportConnection.png)
+![RESTAPIConnection](screenShots/ReportManagement/NewReportCreation/RestApiModuleDataPagination.png)
 
 2. Create New Report Connection (Via REST API Module)
 
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
+![RESTAPIPage](screenShots/ReportManagement/NewReportCreation/RestApiModuleDataPagination.png)
+![GETPOST](screenShots/ReportManagement/RestAPIModule/Get_Post_RequestMethods.png)
+![Headers](screenShots/ReportManagement/RestAPIModule/RestAPIModuleSpecifyHeadersTab.png)
+![Params](screenShots/ReportManagement/RestAPIModule/RestApiModulePostman.png)
+![Body](screenShots/ReportManagement/RestAPIModule/RESTAPIModule.png)
+![Authentication](screenShots/ReportManagement/RestAPIModule/RestAuthentication.png)
+![SpecifyFormData](screenShots/ReportManagement/RestAPIModule/SpecifyFromData.png)
+![RAWBody](screenShots/ReportManagement/RestAPIModule/SpecifyRawBodyJson.png)
+![UIToJSONFromData](screenShots/ReportManagement/RestAPIModule/UIToJsonFromDataPage.png)
 
 3. Report Preview
 
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
+![BoxReport](screenShots/ReportManagement/TablePreview/BoxPreview.png)
+![ChartReport](screenShots/ReportManagement/TablePreview/ChartPreview.png)
+![TableReportPreview](screenShots/ReportManagement/TablePreview/TablePreview_Aka_Download.png)
+![FilterReport](screenShots/ReportManagement/TablePreview/FilterReports.png)
+![MultiSortReport](screenShots/ReportManagement/TablePreview/MultiSortTableReport.png)
+![ShowSelectiveColumnsReport](screenShots/ReportManagement/TablePreview/ShowSelectiveColumnsTableReport.png)
+![TableReportDownload](screenShots/ReportManagement/TablePreview/DownloadTableReport.png)
 
 4. Assign Reports To Group
-![Report](screenshots/report.png)
+![AssignReportToGroup](screenShots/ReportManagement/AssignReportsToGroup.png)
+
 5. Custom Query Report Creation
-![Report](screenshots/report.png)
+![CustomQueryReport](screenShots/ReportManagement/CustomQueryReportCreation.png)
+
 6. Build Query Report Creation
-![Report](screenshots/report.png)
+![Report](screenShots/ReportManagement/BuildQueryPage1.png)
+![BuildQueryReport](screenShots/ReportManagement/BuildQueryPage2.png)
+
 7. Edit Report Page
-![Report](screenshots/report.png)
+![EditReport](screenShots/ReportManagement/EditReportPage.png)
+
 8. Report Management Page
-![Report](screenshots/report.png)
+![ReportManagement](screenShots/ReportManagement/ReportManagement.png)
 
 ### Report Scheduler
-![Report](screenshots/report.png)
+![ReportScheduler](screenShots/ReportScheduler/ReportScheduler.png)
 
 ### User Management
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
-![Report](screenshots/report.png)
+
+1. AccessNewFeature
+![AccessNewFeature](screenShots/UserManagement/AccessnewFeature.png)
+
+2. AssignDashboardToGroups
+![AssignDashboardToGroups](screenshots/UserManagement/AssignDashboardToGroups.png)
+
+3. Create New Feature
+![CreateNewFeature](screenshots/UserManagement/CreateNewFeature.png)
+
+4. Create New Group
+![NewGroupCreation](screenshots/UserManagement/NewGroupCreation.png)
+
+5. User Management Overview
+![UserManagement](screenshots/UserManagement/UserManagement.png)
+
+6. Register New User
+![RegisterNewUser](screenshots/UserManagement/registerNewUser.png)
 
 ### Others
 1. Available Features
