@@ -19,6 +19,26 @@ HyphenView is a self-service Business Intelligence & Data Visualization Platform
 - **Scheduled Reports**: Automatically send reports to clients at specified times. You can specify what is to be included, who should receive the report, and how often it will be sent.
 - **Dashboard View for Analysis**: Dashboards compile data and visualize trends and occurrences, allowing all users to understand the analytics and the analysis process.
 
+## Screenshots
+
+### Dashboard Management
+![Dashboard](screenshots/dashboard.png)
+
+### Report Management
+![Report](screenshots/report.png)
+
+### Report Scheduler
+![Report](screenshots/report.png)
+
+### Report Scheduler
+![Report](screenshots/report.png)
+
+### User Management
+![Report](screenshots/report.png)
+
+### Others
+![Report](screenshots/report.png)
+
 ## Uses
 
 1. **Server Monitoring**: HyphenView monitors server details such as CPU usage, data source monitoring, networking, operating system, and more. The details can be displayed in table view or in various pictorial forms including pie charts, donut charts, stacked charts, bar charts, and more.
