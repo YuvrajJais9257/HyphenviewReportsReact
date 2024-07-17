@@ -33,31 +33,68 @@ HyphenView is a self-service Business Intelligence & Data Visualization Platform
 
 1. Create New Report Connection (Via Databases)
 
+RegisterNewConnection
 ![CreateNewReportConnection](screenShots/ReportManagement/NewReportCreation/CreateNewReportConnection.png)
+
+NewMySQLConnection
 ![NewMySQLConnection](screenShots/ReportManagement/NewReportCreation/NewMysqlConnection.png)
+
+AvailableReportConnections
 ![TypesOfReportConnections](screenShots/ReportManagement/NewReportCreation/TypesOfReportConnection.png)
+
+RESTAPIConnection
 ![RESTAPIConnection](screenShots/ReportManagement/NewReportCreation/RestApiModuleDataPagination.png)
 
 2. Create New Report Connection (Via REST API Module)
 
+RESTAPIModuleOverview
 ![RESTAPIPage](screenShots/ReportManagement/NewReportCreation/RestApiModuleDataPagination.png)
+
+GET_POSTMethod
 ![GETPOST](screenShots/ReportManagement/RestAPIModule/Get_Post_RequestMethods.png)
+
+SpecifyHeaders
 ![Headers](screenShots/ReportManagement/RestAPIModule/RestAPIModuleSpecifyHeadersTab.png)
+
+SpecifyParams
 ![Params](screenShots/ReportManagement/RestAPIModule/RestApiModulePostman.png)
+
+SpecifyBody
 ![Body](screenShots/ReportManagement/RestAPIModule/RESTAPIModule.png)
+
+SpecifyAuthentication
 ![Authentication](screenShots/ReportManagement/RestAPIModule/RestAuthentication.png)
+
+SpecifyFormData
 ![SpecifyFormData](screenShots/ReportManagement/RestAPIModule/SpecifyFromData.png)
+
+SpecifyBodyJSON
 ![RAWBody](screenShots/ReportManagement/RestAPIModule/SpecifyRawBodyJson.png)
+
+UIToJSONFromDataPage
 ![UIToJSONFromData](screenShots/ReportManagement/RestAPIModule/UIToJsonFromDataPage.png)
 
 3. Report Preview
 
+BoxReportPreview
 ![BoxReport](screenShots/ReportManagement/TablePreview/BoxPreview.png)
+
+ChartReportPreview
 ![ChartReport](screenShots/ReportManagement/TablePreview/ChartPreview.png)
+
+TableReportPreview
 ![TableReportPreview](screenShots/ReportManagement/TablePreview/TablePreview_Aka_Download.png)
+
+FilterReportsTool
 ![FilterReport](screenShots/ReportManagement/TablePreview/FilterReports.png)
+
+MultiSortReportsTool
 ![MultiSortReport](screenShots/ReportManagement/TablePreview/MultiSortTableReport.png)
+
+ShowSelectiveColumns
 ![ShowSelectiveColumnsReport](screenShots/ReportManagement/TablePreview/ShowSelectiveColumnsTableReport.png)
+
+TableReportDownload
 ![TableReportDownload](screenShots/ReportManagement/TablePreview/DownloadTableReport.png)
 
 4. Assign Reports To Group
@@ -85,19 +122,19 @@ HyphenView is a self-service Business Intelligence & Data Visualization Platform
 ![AccessNewFeature](screenShots/UserManagement/AccessnewFeature.png)
 
 2. AssignDashboardToGroups
-![AssignDashboardToGroups](screenshots/UserManagement/AssignDashboardToGroups.png)
+![AssignDashboardToGroups](screenShots/UserManagement/AssignDashboardToGroups.png)
 
 3. Create New Feature
-![CreateNewFeature](screenshots/UserManagement/CreateNewFeature.png)
+![CreateNewFeature](screenShots/UserManagement/CreateNewFeature.png)
 
 4. Create New Group
-![NewGroupCreation](screenshots/UserManagement/NewGroupCreation.png)
+![NewGroupCreation](screenShots/UserManagement/NewGroupCreation.png)
 
 5. User Management Overview
-![UserManagement](screenshots/UserManagement/UserManagement.png)
+![UserManagement](screenShots/UserManagement/UserManagement.png)
 
 6. Register New User
-![RegisterNewUser](screenshots/UserManagement/registerNewUser.png)
+![RegisterNewUser](screenShots/UserManagement/registerNewUser.png)
 
 ### Others
 1. Available Features
