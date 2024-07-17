@@ -22,14 +22,53 @@ HyphenView is a self-service Business Intelligence & Data Visualization Platform
 ## Screenshots
 
 ### Dashboard Management
+1. Create Dashboard Page
 ![DashboardCreation](screenShots/DashbaordManagement/DashboardCreation.png)
+2. Dashboard Management Page
 ![DashboardManagement](screenShots/DashbaordManagement/DashboardManagement.png)
+3. Dashboard Overview Page/ HomePage
 ![DashboardOverview](screenShots/DashbaordManagement/DashboardSideBar.png)
 
 ### Report Management
+
+1. Create New Report Connection (Via Databases)
+
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
 ![Report](screenshots/report.png)
 
-### Report Scheduler
+2. Create New Report Connection (Via REST API Module)
+
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+
+3. Report Preview
+
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+
+4. Assign Reports To Group
+![Report](screenshots/report.png)
+5. Custom Query Report Creation
+![Report](screenshots/report.png)
+6. Build Query Report Creation
+![Report](screenshots/report.png)
+7. Edit Report Page
+![Report](screenshots/report.png)
+8. Report Management Page
 ![Report](screenshots/report.png)
 
 ### Report Scheduler
@@ -37,9 +76,21 @@ HyphenView is a self-service Business Intelligence & Data Visualization Platform
 
 ### User Management
 ![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
+![Report](screenshots/report.png)
 
 ### Others
-![Report](screenshots/report.png)
+1. Available Features
+![AvailableFeatures](screenShots/Others/Features.png)
+
+2. AppLoginPage
+![AppLoginPage](screenShots/Others/LoginPage.png)
+
+3. UserProfilePage
+![UserProfilePage](screenShots/Others/ProfilePage.png)
 
 ## Uses
 
